@@ -13,8 +13,10 @@ body {
 
   .container {
     background-color: #A3C4B6;
+    height: auto;
+    min-height: 500px;
     width:100%;
-    margin: auto;
     margin-top:80px;
+    max-width: 100%;
   }
 }
