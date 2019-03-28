@@ -16,11 +16,15 @@
   <body>
     <nav id='nav-bar'>
       <img class='logo' src='../images/hippo.png'  style="width:80px;height:80px;">
-      <input class ="searchBar" type="text" name="firstname" value="Search">
-      <button type="button" class="btn btn-light">Search</button>
-      <span class='header'>The Water Hole</span>
-      <button type="button" class="btn btn-light" id="loginBtn">Login</button>
-      <button type="button" class="btn btn-light" id="registerBtn">Register</button>
+        <input class ="searchBar" type="text" name="firstname" value="Search">
+        <button type="button" class="btn btn-light">Search</button>
+        <span class='header'>The Water Hole</span>
+      <form action="/login" method="GET">
+        <input type="submit" class="btn btn-light" id="registerBtn" value="login">
+      </form>
+      <form action="/register" method="GET">
+        <input type="submit" class="btn btn-light" id="registerBtn" value="Register">
+      </form>
     </nav>
 
     <main class='container' id='resource-container'>
