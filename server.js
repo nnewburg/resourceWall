@@ -8,12 +8,17 @@ const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
+const cookieSession = require('cookie-session');
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
-
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+  maxAge: 24 * 60 * 60 * 1000
+}));
 
 //helper functions for routes
 const queries = require('./helper_functions');
@@ -54,12 +59,21 @@ app.get("/register", (req, res) => {
 
 //Login page
 app.get("/login", (req, res) => {
+
   res.render("login");
 });
 
+app.post("/login", (req, res) => {
+  knex('users').where({email: req.body.email}).then(res  => {
+  req.session.user_id = res[0].id})
+  res.redirect('/')
+});
+
 app.post("/register", (req, res) => {
-  console.log("test")
   queries.addUser(knex, req.body)
+  knex('users').where({email: req.body.email}).then(res  => {
+    console.log(res[0].id)
+  req.session.user_id = res[0].id})
   res.redirect('/')
 });
 
