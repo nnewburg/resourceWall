@@ -72,6 +72,11 @@ app.post("/login", (req, res) => {
   res.redirect('/')
 });
 
+app.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect('/')
+});
+
 app.post("/register", (req, res) => {
   queries.addUser(knex, req.body)
   knex('users').where({email: req.body.email}).then(res  => {
