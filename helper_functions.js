@@ -19,8 +19,8 @@ function addUser(client, input){
 }
 
 function addResource(client, input){
-  client.knex('resources').insert([{name: input.name, email: input.email,
-       password: input.password, profile_image: input.profile_image}])
+  client.knex('resources').insert([{title: input.title, url: input.url,
+       image: input.image, description: input.description, user_id: req.session.user_id}])
   .asCallback(function(err, res) {
     console.log(res);
     client.knex.destroy();
@@ -28,5 +28,5 @@ function addResource(client, input){
 }
 
 
-// exports.deletePerson = deletePerson;
+exports.addResource = addResource;
 exports.addUser = addUser;
