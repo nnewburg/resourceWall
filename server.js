@@ -49,17 +49,20 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  res.render("index");
+  let templateVars = {user: req.session.user_id};
+  res.render("index" , templateVars);
 });
 
 //Register page
 app.get("/register", (req, res) => {
-  res.render("register");
+  let templateVars = {user: req.session.user_id}
+  res.render("register", templateVars);
 });
 
 //Login page
 app.get("/login", (req, res) => {
-  res.render("login");
+  let templateVars = {user: req.session.user_id}
+  res.render("login", templateVars);
 });
 
 app.post("/login", (req, res) => {
