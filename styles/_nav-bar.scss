@@ -1,37 +1,45 @@
+$height-of-contents: 75%;
+$header-size: 16px;
+
+@media screen and (min-width: 1024px) {
 #nav-bar {
-  z-index: 100;
   box-sizing: border-box;
-  height: 80px;
   width: 100%;
-  padding:0px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Crimson Text', serif;
   background: #536D67;
+  z-index: 100;
+  padding:0px;
   position: fixed;
   top: 0;
-
-  #loginBtn{
-  margin-top: 2em;
-  margin-right: 1em;
-  float: right;
-  }
-
-  .searchBar{
-    float: bottom;
-  }
-
-   #registerBtn{
-   margin-right: 1em;
-   float: right;
-  }
 
   .logo{
     height: 80px;
     width: 80px;
-    float: left;
+  }
+
+  .search-bar{
+    width:200px;
+    height: $height-of-contents;
+  }
+
+  .btn-light{
+    height: $height-of-contents;
+    border-radius: 2px;
   }
 
   .header{
-    float: left;
-    padding: 3px 10px 0px 0px;
-    font: 250% font-size;
+    font-size: $header-size * 2;
   }
+
+  .right-header{
+    display:flex;
+    justify-content: space-evenly;
+    height:$height-of-contents;
+    padding-right: 10px;
+  }
+}
 }
