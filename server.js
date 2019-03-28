@@ -65,6 +65,7 @@ app.get("/login", (req, res) => {
   res.render("login", templateVars);
 });
 
+
 app.post("/login", (req, res) => {
   knex('users').where({email: req.body.email}).then(res  => {
   req.session.user_id = res[0].id})
@@ -79,7 +80,17 @@ app.post("/register", (req, res) => {
   res.redirect('/')
 });
 
-
+app.get('/search/:keyword', (req, res) => {
+  knex.select('*').from('resources')
+      .join('resource_keywords', 'resources.id', 'resource_keywords.resource_id')
+      .join('keywords', 'resource_keywords.keyword_id', 'keywords.id')
+      .join('users', 'resources.user_id', 'users.id')
+      .where('keywords.name', req.params.keyword) // search by keyword
+      .orWhere('users.name', req.params.keyword) //search by user's name
+      .then((results) => {
+        res.json(results);
+    });
+});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
