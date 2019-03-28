@@ -1,0 +1,37 @@
+<h1> The Waterhole </h1>
+<body>
+  <table>
+    <tr>
+      <td>
+        TO IMPLEMENT WHEN USER COOKIE IS PRESENT
+        <% if (!users) { %>
+          <nav id='nav-bar'>
+            <img class='logo' src='../images/hippo.png'  style="width:80px;height:80px;">
+            <input class ="searchBar" type="text" name="firstname" value="Search">
+            <button type="button" class="btn btn-light">Search</button>
+            <span class='header'>The Waterhole</span>
+            <form class="form-inline" method="GET" action="/login" >
+              <button type = "submit" class="btn btn-light" id="login-button" value="Login"> Login</button>
+            </form>
+            <form class="form-inline" method="GET" action="/register" >
+              <button type = "submit" class="btn btn-light" id="register-button" value="Register"> Register </button>
+            </form>
+          </nav>
+        or
+        <nav id='nav-bar'>
+            <img class='logo' src='../images/hippo.png'  style="width:80px;height:80px;">
+            <input class ="search-bar" type="text" name="search-bar" value="search">
+            <button type="button" class="btn btn-light">Search</button>
+            <h1>The Waterhole</h1>
+            <form class="form-inline" method ="POST" action ="/logout">
+              <button type = "submit" class="btn btn-light" id="logout-button" value="Logout"> Logout</button>
+            </form>
+            <form class="form-inline" method="GET" action="/resources/users/:id/edit" >
+              <button type = "submit" class="btn btn-light" id="edit-profile-button" value="Edit Profile"> Edit Profile </button>
+            </form>
+          </nav>
+        <% } %>
+      </td>
+    </tr>
+  </table>
+</body>

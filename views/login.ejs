@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Waterhole - Login</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+        <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+        <link rel='stylesheet' href='/styles/styles.css'type='text/css'/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+        <script type="text/javascript" src="/scripts/app.js"></script>
+        <% include ./partials/_header %>
+      </head>
 
-    <title>Water Hole - Login</title>
-  </head>
-
-  <body>
-    <nav id='nav-bar'>
-      <img class='logo' src='../images/hippo.png'  style="width:80px;height:80px;">
-      <input class ="searchBar" type="text" name="firstname" value="Search">
-      <button type="button" class="btn btn-light">Search</button>
-      <span class='header'>The Water Hole</span>
-      <button type="button" class="btn btn-light" id="loginBtn">Login</button>
-      <button type="button" class="btn btn-light" id="registerBtn">Register</button>
-    </nav>
+      <body>
+        <main class='container' id='resource-container'>
     <form action="/login" method="POST">
       <div class="form-group mb-2">
         <label for="Login">Login or
@@ -32,5 +30,6 @@
         <button type="submit" class="btn btn-primary" style="margin-top:5px"> Login </button>
         </div>
       </form>
+    </main>
   </body>
 </html>
