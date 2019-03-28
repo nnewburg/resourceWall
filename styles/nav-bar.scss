@@ -1,0 +1,22 @@
+#nav-bar {
+  z-index: 100;
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  padding:0px;
+  background: #536D67;
+  position: fixed;
+  top: 0;
+
+  .logo{
+    height: 80px;
+    width: 80px;
+    float: left;
+  }
+
+  .header{
+    float: left;
+    padding: 3px 10px 0px 0px;
+    font: 250% font-size;
+  }
+}

@@ -1,0 +1,24 @@
+#nav-bar {
+  z-index: 100;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  padding: 0px;
+  background: #536D67;
+  position: fixed;
+  top: 0;
+}
+
+#nav-bar .logo {
+  height: 80px;
+  width: 80px;
+  float: left;
+}
+
+#nav-bar .header {
+  float: left;
+  padding: 3px 10px 0px 0px;
+  font: 250% font-size;
+}
+/*# sourceMappingURL=nav-bar.css.map */
