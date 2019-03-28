@@ -3,16 +3,20 @@
     <tr>
       <td>
         <nav id='nav-bar'>
+          <div>
           <img class='logo' src='../images/hippo.png'>
-          <input class ="searchBar" type="text" name="firstname" value="Search">
-          <button type="button" class="btn btn-light">Search</button>
-          <span class='header'>The Waterhole</span>
+          <input class ="search-bar" type="text" name="firstname" value="Search">
+          <button type="button" class="btn-light" id="search-button">Search</button>
+        </div>
+        <span class='header'>The Waterhole</span>
+        <div class='right-header'>
           <form class="form-inline" method="GET" action="/login" >
-            <button type = "submit" class="btn btn-light" id="login-button" value="Login"> Login</button>
+            <button type = "submit" class="btn-light" id="login-button" value="Login"> Login</button>
           </form>
           <form class="form-inline" method="GET" action="/register" >
-            <button type = "submit" class="btn btn-light" id="register-button" value="Register"> Register </button>
+            <button type = "submit" class="btn-light" id="register-button" value="Register"> Register </button>
           </form>
+        </div>
         </nav>
       </td>
     </tr>

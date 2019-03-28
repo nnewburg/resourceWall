@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
         <link rel='stylesheet' href='/styles/styles.css'type='text/css'/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i" rel="stylesheet">
         <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
         <script type="text/javascript" src="/scripts/app.js"></script>
         <% include ./partials/_header %>
@@ -19,10 +20,6 @@
         <main class='container' id='resource-container'>
     <form action="/login" method="POST">
       <div class="form-group mb-2">
-        <label for="Login">Login or
-          <a href= "http://localhost:8080//resources/users/registration"> Register</a>
-        </label>
-        <br>
         <label for="email">Registered Email</label>
         <input class="form-control" type="email" name="email" placeholder="example@gmail.com" style="width: 300px" >
         <label for="password">Password</label><br>
