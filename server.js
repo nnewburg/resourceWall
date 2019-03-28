@@ -8,11 +8,15 @@ const express     = require("express");
 const bodyParser  = require("body-parser");
 const sass        = require("node-sass-middleware");
 const app         = express();
-
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
+
+
+
+//helper functions for routes
+const queries = require('./helper_functions');
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -53,6 +57,11 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.post("/register", (req, res) => {
+  console.log("test")
+  queries.addUser(knex, req.body)
+  res.redirect('/')
+});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
