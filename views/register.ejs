@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Water Hole - Register</title>
+</head>
+
+<body style="font-size:20px; padding:50px;">
+  <h1>The Water Hole</h1>
+  <form action="/register" method="POST">
+    <div class="form-group mb-2">
+      <label for="Login">Register, or
+        <a href= "http://localhost:8080/resources/users/login"> Login here</a>
+      </label>
+      <br/>
+      <label for="email">Your Email</label>
+      <input class="form-control" type="email" name="email" placeholder="example@gmail.com" style="width: 300px" >
+      <label for="password">Password</label>
+      <br/>
+      <input class="form-control" type="password" name="password" placeholder="Enter your password here" style="width: 300px">
+      <button type="submit" class="btn btn-primary" style="margin-top:5px"> Register </button>
+    </div>
+  </form>
+</body>
+
+</html>
