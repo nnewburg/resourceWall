@@ -1,5 +1,10 @@
 html {
   box-sizing: border-box;
+  // background: url(https://en.wikipedia.org/wiki/Portal:Waterfalls#/media/File:Kravica_Waterfalls,Bosnia_%26_Herzegovina.jpg) no-repeat center center fixed; 
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
 }
 
 *, *:before, *:after {
@@ -14,10 +19,10 @@ body {
 
   .container {
     background-color: #A3C4B6;
-    height: auto;
+    height: window-height;
     min-height: 500px;
     width:100%;
-    margin-top:80px;
+    margin-top:30px;
     max-width: 100%;
   }
 }

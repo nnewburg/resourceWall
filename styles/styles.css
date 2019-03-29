@@ -17,10 +17,10 @@ body {
 
 body .container {
   background-color: #A3C4B6;
-  height: auto;
+  height: window-height;
   min-height: 500px;
   width: 100%;
-  margin-top: 80px;
+  margin-top: 30px;
   max-width: 100%;
 }
 
