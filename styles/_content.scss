@@ -1,13 +1,14 @@
 $width: 300px;
 .shared-content{
-  height: $width;
-  width: $width;
+  height: 20%;
+  width: 20%;
   border-radius: 10px;
   border:2px solid;
 
   .post-image{
-    height: $width;
-    width: $width;
+    position: relative;
+    height: 50%;
+    width: 100%;
   }
 
 }
