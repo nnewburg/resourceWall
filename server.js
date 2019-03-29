@@ -97,21 +97,14 @@ app.get('/search/:keyword', (req, res) => {
       .orWhere('users.name', req.params.keyword) //search by user's name
       .then((results) => {
         res.json(results);
-    });
+      });
 });
 
-app.put('/resources/:resourceId', (req, res) => {
-  function likeTweet (tweetId, callback) {
-    db.collection("tweets").updateOne({'_id': ObjectId(tweetId)}, { $inc: { "like": 1}});
-    callback(null, true);
-  }
-  likeTweet(req.params.tweetId, (err, res) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-    } else {
-      console.log('updated');
-    }
-  });
+app.put('/like/:resourceId', (req, res) => {
+  knex('user_likes').insert({'user_id': req.session.user.id, 'resource_id': req.params.resourceId})
+  .then((results) => {
+    res.json(results);
+  });;
 });
 
 app.listen(PORT, () => {

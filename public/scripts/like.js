@@ -1,13 +1,20 @@
 $('div').on('click', '.like', function(){
     //console.log('clicked')
-    const resourceId= this.id
+  const resourceId= this.id
     //console.log(postId)
-    $.ajax({
-        url: `/resources/${resourceId}/like`,
+  $.ajax({
+        url: `/like/${resourceId}`,
         type: "PUT",
-        data: {'user_id': 1, 'resource_id': resourceId}
+        data: {'resource_id': resourceId}
       })
-      .done(function(){
-        console.log('post')
+      .done(function(res){
+          console.log(res[0].id)
+        //$('.nOfLikes').html(res);
       })
 })
+
+$.ajax(`/like/${resourceId}`, { method: 'GET' })
+    .then(function(res){
+      //console.log(res)
+      $('.nOfLikes').html(res);
+  })
