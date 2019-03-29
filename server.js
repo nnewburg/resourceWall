@@ -115,7 +115,16 @@ app.put('/like/:resourceId', (req, res) => {
   });
 });
 
-app.get('/like/:resourceId', (req, res) => {
+app.get('/like/:resourceId/', (req, res) => {
+  knex('user_likes').where('resource_id', req.params.resourceId)
+  .then((results) => {
+    let counter = 0;
+    results.forEach(() => {return counter++})
+    res.json(counter);
+  });
+});
+
+app.get('/like/:resourceId/:userId', (req, res) => {
   knex('user_likes').where('resource_id', req.params.resourceId)
   .andWhere('user_id', req.session.user.id)
   .then((results) => {

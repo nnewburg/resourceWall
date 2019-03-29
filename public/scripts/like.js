@@ -5,6 +5,7 @@ $('div.likes').on('click', function(){
   $.ajax(`/like/${resourceId}`, { method: 'GET' })
       .then(function(counter){
         //console.log('number of likes from this user', counter)
+        console.log
         if(counter === 1)  {
           $(".nOfLikes").text(currentLikes - 1);
           $.ajax({
