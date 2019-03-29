@@ -1,0 +1,13 @@
+$width: 300px;
+.shared-content{
+  height: $width;
+  width: $width;
+  border-radius: 10px;
+  border:2px solid;
+
+  .post-image{
+    height: $width;
+    width: $width;
+  }
+
+}
