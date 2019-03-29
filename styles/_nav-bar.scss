@@ -1,4 +1,4 @@
-$height-of-contents: 75%;
+$height-of-contents: 70%;
 $header-size: 16px;
 
 @media screen and (min-width: 1024px) {
@@ -23,12 +23,14 @@ $header-size: 16px;
 
   .search-bar{
     width:200px;
-    height: $height-of-contents;
+    height: 50%;
   }
 
   .btn-light{
     height: $height-of-contents;
     border-radius: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
   }
 
   .header{
@@ -37,6 +39,7 @@ $header-size: 16px;
 
   .right-header{
     display:flex;
+    margin:0;
     justify-content: space-evenly;
     height:$height-of-contents;
     padding-right: 10px;
