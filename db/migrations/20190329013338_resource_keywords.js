@@ -1,7 +1,6 @@
 
 exports.up = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('resource_keywords'),
     knex.schema.createTable('resource_keywords', function(table){
       table.increments('id');
       table.integer('keyword_id').unsigned().notNullable();
