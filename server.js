@@ -18,14 +18,10 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2'],
   maxAge: 24 * 60 * 60 * 1000
-
 }));
 
 //helper functions for routes
 const queries = require('./helper_functions');
-
-// Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -44,9 +40,6 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
-
-// Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
