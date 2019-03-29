@@ -97,6 +97,20 @@ app.get('/search/:keyword', (req, res) => {
     });
 });
 
+app.put('/resources/:resourceId', (req, res) => {
+  function likeTweet (tweetId, callback) {
+    db.collection("tweets").updateOne({'_id': ObjectId(tweetId)}, { $inc: { "like": 1}});
+    callback(null, true);
+  }
+  likeTweet(req.params.tweetId, (err, res) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      console.log('updated');
+    }
+  });
+});
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });

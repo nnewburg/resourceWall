@@ -1,7 +1,7 @@
 $('#searchBtn').on('click', function(){
-  console.log('clicked')
+  //console.log('clicked')
   const keyword = $('.searchBar').val();
-  console.log(keyword)
+  //console.log(keyword)
   $.ajax(`/search/${keyword}`, { method: 'GET' })
     .then(function(res){
       console.log(res)
