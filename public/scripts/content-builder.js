@@ -19,3 +19,10 @@ function createPost(resource){
 
     return $article;
 }
+
+function renderPosts(data) {
+  for (let content of data){
+    let $content = createPost(resource);
+    $content.prependTo($('#content-body'));
+  }
+}

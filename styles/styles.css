@@ -73,58 +73,8 @@ body .container {
   }
 }
 
-.btn-love {
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  right: 0;
-  top: 50vh;
-  margin: auto;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
-  -webkit-transform: scale(2);
-          transform: scale(2);
-}
-
-.btn-love:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100px;
-  margin: 0 auto;
-  background: url(https://abs.twimg.com/a/1446862637/img/t1/web_heart_animation.png) 0 0 no-repeat;
-  background-size: 2900%;
-  height: 100px;
-  width: 100px;
-}
-
-#btn:checked + .btn-love:after {
-  -webkit-animation: heart-burst steps(28) 0.8s 1 both;
-          animation: heart-burst steps(28) 0.8s 1 both;
-}
-
-.btn-love:after {
-  -webkit-animation: heart-burst steps(28) 0.8s both infinite;
-          animation: heart-burst steps(28) 0.8s both infinite;
-}
-
-@-webkit-keyframes heart-burst {
-  0% {
-    background-position: left;
-  }
-  100% {
-    background-position: right;
-  }
-}
-
-@keyframes heart-burst {
-  0% {
-    background-position: left;
-  }
-  100% {
-    background-position: right;
-  }
+.article {
+  height: 150px;
+  width: 150px;
 }
 /*# sourceMappingURL=styles.css.map */
