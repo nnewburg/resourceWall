@@ -76,6 +76,11 @@ body .container {
   }
 }
 
+#resource-container{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .article {
   height: 150px;
   width: 150px;
