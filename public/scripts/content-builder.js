@@ -8,6 +8,7 @@ function createPost(resource){
   )
   let $footer = ($('<footer>')
   .append($('<div>').addClass('likes').text('❤️'))
+  .append($('<div>').addClass('nOfLikes').text('0'))
   .append($('<div>').addClass('rating').text(resource.rating))
   .append($('<div>').addClass('comments').text(resource.comments))
   )

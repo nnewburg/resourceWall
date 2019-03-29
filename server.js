@@ -101,6 +101,13 @@ app.get('/search/:keyword', (req, res) => {
       });
 });
 
+app.put('/unlike/:resourceId', (req, res) => {
+  knex('user_likes').where('user_id', req.session.user.id).del()
+  .then((results) => {
+    res.json(results);
+  });
+});
+
 app.put('/like/:resourceId', (req, res) => {
   knex('user_likes').insert({'user_id': req.session.user.id, 'resource_id': req.params.resourceId})
   .then((results) => {
@@ -110,6 +117,7 @@ app.put('/like/:resourceId', (req, res) => {
 
 app.get('/like/:resourceId', (req, res) => {
   knex('user_likes').where('resource_id', req.params.resourceId)
+  .andWhere('user_id', req.session.user.id)
   .then((results) => {
     let counter = 0;
     results.forEach(() => {return counter++})
