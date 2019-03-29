@@ -18,8 +18,8 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2'],
   maxAge: 24 * 60 * 60 * 1000
-
 }));
+
 
 //helper functions for routes
 const queries = require('./helper_functions');
@@ -47,6 +47,7 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/api/users", usersRoutes(knex));
+
 
 // Home page
 app.get("/", (req, res) => {
@@ -104,7 +105,16 @@ app.put('/like/:resourceId', (req, res) => {
   knex('user_likes').insert({'user_id': req.session.user.id, 'resource_id': req.params.resourceId})
   .then((results) => {
     res.json(results);
-  });;
+  });
+});
+
+app.get('/like/:resourceId', (req, res) => {
+  knex('user_likes').where('resource_id', req.params.resourceId)
+  .then((results) => {
+    let counter = 0;
+    results.forEach(() => {return counter++})
+    res.json(counter);
+  });
 });
 
 app.listen(PORT, () => {

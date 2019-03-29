@@ -1,7 +1,9 @@
-$('div').on('click', '.like', function(){
-    //console.log('clicked')
-  const resourceId= this.id
-    //console.log(postId)
+$('div.likes').on('click', function(){
+  console.log('clicked')
+  const resourceId= this.id;
+  //const currentLikes = Number($(this).siblings(".nLikes").text());
+  //$(this).siblings(".nOfLikes").text(currentLikes + 1);
+
   $.ajax({
         url: `/like/${resourceId}`,
         type: "PUT",
@@ -13,8 +15,8 @@ $('div').on('click', '.like', function(){
       })
 })
 
-$.ajax(`/like/${resourceId}`, { method: 'GET' })
-    .then(function(res){
-      //console.log(res)
-      $('.nOfLikes').html(res);
-  })
+// $.ajax(`/like/${resourceId}`, { method: 'GET' })
+//     .then(function(res){
+//       //console.log(res)
+//       $('.nOfLikes').html(res);
+//   })

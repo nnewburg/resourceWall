@@ -1,4 +1,4 @@
-$('#searchBtn').on('click', function(){
+$('#search-button').on('click', function(){
   //console.log('clicked')
   const keyword = $('.searchBar').val();
   //console.log(keyword)
