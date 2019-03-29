@@ -18,6 +18,7 @@ app.use(cookieSession({
   name: 'session',
   keys: ['key1', 'key2'],
   maxAge: 24 * 60 * 60 * 1000
+
 }));
 
 //helper functions for routes
@@ -49,40 +50,42 @@ app.use("/api/users", usersRoutes(knex));
 
 // Home page
 app.get("/", (req, res) => {
-  let templateVars = {user: req.session.user_id};
+  let templateVars = {user: req.session.user};
   res.render("index" , templateVars);
 });
 
 //Register page
 app.get("/register", (req, res) => {
-  let templateVars = {user: req.session.user_id}
+  let templateVars = {user: req.session.user};
   res.render("register", templateVars);
 });
 
 //Login page
 app.get("/login", (req, res) => {
-  let templateVars = {user: req.session.user_id}
+  let templateVars = {user: req.session.user};
   res.render("login", templateVars);
 });
 
 
 app.post("/login", (req, res) => {
-  knex('users').where({email: req.body.email}).then(res  => {
-  req.session.user_id = res[0].id})
-  res.redirect('/')
+   knex('users').where({email: req.body.email}).then(result  => {
+      req.session.user = result[0];
+      res.redirect('/');
+    });
 });
 
 app.post("/logout", (req, res) => {
-  req.session = null;
+  req.session.user = null;
   res.redirect('/')
 });
 
 app.post("/register", (req, res) => {
-  queries.addUser(knex, req.body)
-  knex('users').where({email: req.body.email}).then(res  => {
-    console.log(res[0].id)
-  req.session.user_id = res[0].id})
-  res.redirect('/')
+  queries.addUser(knex, req.body).then(result => {
+    knex('users').where({email: req.body.email}).then(result  => {
+      req.session.user = result[0];
+      res.redirect('/');
+    });
+  });
 });
 
 app.get('/search/:keyword', (req, res) => {
