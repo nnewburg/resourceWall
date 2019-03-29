@@ -20,6 +20,7 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000
 }));
 
+
 //helper functions for routes
 const queries = require('./helper_functions');
 
