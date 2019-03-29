@@ -71,7 +71,7 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
    knex('users').where({email: req.body.email}).then(result  => {
       req.session.user = result[0];
-      res.redirect('/');
+      res.redirect(`/resources/:id`);
     });
 });
 
@@ -80,12 +80,24 @@ app.post("/logout", (req, res) => {
   res.redirect('/')
 });
 
+app.get("/resources/:id", (req, res) => {
+  let templateVars = {user: req.session.user};
+  res.render('my_glass_of_water', templateVars)
+});
+
+
 app.post("/register", (req, res) => {
   queries.addUser(knex, req.body).then(result => {
     knex('users').where({email: req.body.email}).then(result  => {
       req.session.user = result[0];
-      res.redirect('/');
+      res.redirect(`/resources/${req.session.user.id}`);
     });
+  });
+});
+
+app.post("/resources/:id/newResource", (req, res) => {
+  queries.addResource(knex, req.body, req.session.user.id ).then(result => {
+    res.redirect('/');
   });
 });
 

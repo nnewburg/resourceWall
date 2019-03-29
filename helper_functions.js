@@ -5,12 +5,11 @@ function addUser(client, input){
   });
 }
 
-function addResource(client, input){
-  client.knex('resources').insert([{title: input.title, url: input.url,
-       image: input.image, description: input.description, user_id: req.session.user_id}])
+function addResource(client, input, userId){
+  console.log()
+ return client('resources').insert([{title: input.title, url: input.url,
+       image: input.image, description: input.description, user_id: userId}])
   .asCallback(function(err, res) {
-    console.log(res);
-    client.knex.destroy();
   });
 }
 
