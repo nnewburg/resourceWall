@@ -154,6 +154,23 @@ app.get('/like/:resourceId/:userId', (req, res) => {
   });
 });
 
+app.get('/comments/:resourceId/:userId', (req, res) => {
+  knex.select('users.name', 'comments.content').from('comments')
+      .join('users', 'comments.user_id', 'users.id')
+      .where('comments.resource_id', req.params.resourceId) //search by user's name
+      .then((results) => {
+        res.json(results);
+      })
+})
+
+
+app.put('/comments/:resourceId/:userId', (req, res) => {
+  knex('comments').insert({'user_id': req.session.user.id, 'resource_id': req.params.resourceId, 'content': req.body.content})
+  .then((results) => {
+    res.json(results);
+  });
+})
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
