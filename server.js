@@ -52,13 +52,24 @@ app.use("/api/users", usersRoutes(knex));
 // Home page
 app.get("/", (req, res) => {
   let templateVars = {user: req.session.user};
-  res.render("index" , templateVars);
+  res.redirect('/resources')
 });
 
 //Register page
 app.get("/register", (req, res) => {
   let templateVars = {user: req.session.user};
   res.render("register", templateVars);
+});
+
+app.get("/resources/users/:id/edit", (req, res) => {
+  let templateVars = {user: req.session.user};
+  res.render('edit_user_profile', templateVars)
+});
+
+
+app.get("/resources", (req, res) => {
+  let templateVars = {user: req.session.user};
+  res.render("index", templateVars);
 });
 
 //Login page
@@ -70,8 +81,12 @@ app.get("/login", (req, res) => {
 
 app.post("/login", (req, res) => {
    knex('users').where({email: req.body.email}).then(result  => {
+    if(result[0]){
       req.session.user = result[0];
-      res.redirect(`/resources/:id`);
+      res.redirect(`/resources/${req.session.user.id}`);
+    } else {
+      res.redirect('/');
+    }
     });
 });
 
@@ -97,7 +112,7 @@ app.post("/register", (req, res) => {
 
 app.post("/resources/:id/newResource", (req, res) => {
   queries.addResource(knex, req.body, req.session.user.id ).then(result => {
-    res.redirect('/');
+    res.redirect(`/resources/${req.session.user.id}`);
   });
 });
 
