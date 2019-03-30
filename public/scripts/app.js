@@ -26,12 +26,16 @@ function createPost(resource){
     .append($('<div>').addClass('likes').text('❤️'))
     .append($('<div>').addClass('nOfLikes').text(resource.likes))
     .append($('<div>').addClass('rating').text('⭐'))
-    .append($('<input>').addClass('comments').text(resource.comments))
+    .append($('<div>').addClass('nOfLikes').text('0'))
+    .append($('<div>').addClass('showComments').text('💬'))
+    .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
   )
+
   let $article = ($('<article>').addClass('shared-content')
     .append($head)
     .append($body)
     .append($footer)
+    .append($('<div>').addClass('commentsContainer'))
   );
 
     return $article;
