@@ -5,7 +5,6 @@ $(() => {
   }).done((resources) => {
     for(resource of resources) {
       renderPosts(createPost(resource))
-
     }
   });
 
@@ -18,7 +17,8 @@ function createPost(resource){
     .append($('<h6>').addClass('username').text(resource.user_id))
   );
   let $body = ($('<div>').addClass('post-body')
-    .append($('<img>').addClass('post-image').attr('src', resource.image))
+    .append(($('<a>')).attr('href', resource.url)
+    .append($('<img>').addClass('post-image').attr('src', resource.image)))
     .append($('<p>').text(resource.description))
   );
 

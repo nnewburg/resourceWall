@@ -18,23 +18,12 @@
 
   <body>
   <% include ./partials/_header %>
-    <div>
-      <p>'Side container for liked posts'</p>
-    </div>
-    <form action="/resources/:id/newResource" method="POST">
-        <label>Title</label>
-        <input name="title" type="text"></input>
-        <label>URL</label>
-        <input name="URL" type="text"></input>
-        <label>image</label>
-        <input name="image" type="text"></input>
-        <label>description</label>
-        <input name="description" type="text"></input>
-        <input type="submit" name="submit">
-      </form>
-    <main class='container' id='resource-container'>
-
+    <main class='container'>
+        <br>
+        <% include ./partials/_new-resource %>
+      <div class='resource-container'>
         <% include ./partials/_content %>
+      </div>
     </main>
   </body>
 </html>
