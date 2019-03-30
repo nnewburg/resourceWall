@@ -128,7 +128,6 @@ app.put('/like/:resourceId/:userId', (req, res) => {
 });
 
 app.get('/like/:resourceId/:userId', (req, res) => {
-  //console.log(req.params)
   knex('user_likes').where('resource_id', req.params.resourceId)
   .andWhere('user_id', req.params.userId)
   .then((results) => {

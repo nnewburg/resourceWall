@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 $('.container').on('click', 'div.likes', function(){
+=======
+$('.container').on('click', '.likes', function(){
+>>>>>>> master
   //console.log('clicked')
   //const userId = (window.location.href).split('/').pop();
   const userId = '4';
