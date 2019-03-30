@@ -1,3 +1,6 @@
+<% if (!user) { %>
+  <br>
+<% } else { %>
 <form id='new-resource-form' action="/resources/:id/newResource" method="POST">
   <label>The title of your post:</label>
   <input class='submission-form' name="title" type="text"></input>
@@ -9,3 +12,4 @@
   <input class='submission-form' name="description" type="text"></input>
   <input id='submission-button' type="submit" name="submit">
 </form>
+<% } %>
