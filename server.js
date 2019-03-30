@@ -90,7 +90,6 @@ app.post("/register", (req, res) => {
   queries.addUser(knex, req.body).then(result => {
     knex('users').where({email: req.body.email}).then(result  => {
       req.session.user = result[0];
-      console.log(req.session.user.id)
       res.redirect(`/resources/${req.session.user.id}`);
     });
   });
@@ -111,7 +110,40 @@ app.get('/search/:keyword', (req, res) => {
       .orWhere('users.name', req.params.keyword) //search by user's name
       .then((results) => {
         res.json(results);
-    });
+      });
+});
+
+app.put('/unlike/:resourceId/:userId', (req, res) => {
+  knex('user_likes').where('user_id', req.session.user.id).del()
+  .then((results) => {
+    res.json(results);
+  });
+});
+
+app.put('/like/:resourceId/:userId', (req, res) => {
+  knex('user_likes').insert({'user_id': req.session.user.id, 'resource_id': req.params.resourceId})
+  .then((results) => {
+    res.json(results);
+  });
+});
+
+app.get('/like/:resourceId/:userId', (req, res) => {
+  knex('user_likes').where('resource_id', req.params.resourceId)
+  .andWhere('user_id', req.params.userId)
+  .then((results) => {
+    let counter = 0;
+    results.forEach(() => {return counter++})
+    res.json(counter);
+  });
+});
+
+app.get('/like/:resourceId/', (req, res) => {
+  knex('user_likes').where('resource_id', req.params.resourceId)
+  .then((results) => {
+    let counter = 0;
+    results.forEach(() => {return counter++})
+    res.json(counter);
+  });
 });
 
 app.listen(PORT, () => {

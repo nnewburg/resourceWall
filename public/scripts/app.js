@@ -8,22 +8,24 @@ $(() => {
 
     }
   });
-
 });
 
 function createPost(resource){
+  console.log(resource);
   let $head = ($('<head>')
+
     // .append($('<img>').addClass('user-avatar').attr('scr', user.avatar))
     .append($('<h5>').addClass('title').text(resource.title))
-    .append($('<h6>').addClass('username').text(resource.user_id))
+    .append($('<h6>').addClass('username').text(resource.name))
   );
   let $body = ($('<div>').addClass('post-body')
     .append($('<img>').addClass('post-image').attr('src', resource.image))
     .append($('<p>').text(resource.description))
   );
 
-  let $footer = ($('<div>').addClass('footer')
+  let $footer = ($('<div>').addClass('footer').attr('data-id', resource.id)
     .append($('<div>').addClass('likes').text('❤️'))
+    .append($('<div>').addClass('nOfLikes').text(resource.likes))
     .append($('<div>').addClass('rating').text('⭐'))
     .append($('<input>').addClass('comments').text(resource.comments))
   )
