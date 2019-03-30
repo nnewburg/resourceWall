@@ -26,7 +26,6 @@ function createPost(resource){
     .append($('<div>').addClass('likes').text('❤️'))
     .append($('<div>').addClass('nOfLikes').text(resource.likes))
     .append($('<div>').addClass('rating').text('⭐'))
-    .append($('<div>').addClass('nOfLikes').text('0'))
     .append($('<div>').addClass('showComments').text('💬'))
     .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
   )
