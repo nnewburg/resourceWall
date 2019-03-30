@@ -7,7 +7,7 @@ $(() => {
       renderPosts(createPost(resource))
     }
   });
-});
+
 
   function createPost(resource){
     let $head = ($('<head>')
@@ -63,3 +63,4 @@ $('.container').on('click', '.star', function(e) {
 });
 
 
+});
