@@ -117,13 +117,13 @@ app.post("/resources/:id/newResource", (req, res) => {
 });
 
 app.get('/search/:keyword', (req, res) => {
-  console.log("testing ",req.params.keyword);
+  //console.log("testing ",req.params.keyword);
   knex.select('*').from('resources')
-      //.join('resource_keywords', 'resources.id', 'resource_keywords.resource_id')
-      //.join('keywords', 'resource_keywords.keyword_id', 'keywords.id')
-      .join('users', 'resources.user_id', 'users.id')
-      //.where('keywords.name', req.params.keyword) // search by keyword
-      .where('users.name', req.params.keyword) //search by user's name
+      .leftJoin('resource_keywords', 'resources.id', 'resource_keywords.resource_id')
+      .leftJoin('keywords', 'resource_keywords.keyword_id', 'keywords.id')
+      //.join('users', 'resources.user_id', 'users.id')
+      .where('keywords.name', req.params.keyword) // search by keyword
+      //.orWhere('users.name', req.params.keyword) //search by user's name
       .then((results) => {
         console.log("we are in server ",results);
         res.json(results);
