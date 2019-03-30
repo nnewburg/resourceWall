@@ -6,9 +6,19 @@ function createPost(resource){
     .append($('<img>').addClass('post-image').attr('src', resource.img))
     .append($('<p>').text(resource.description))
   )
+
+  let $rating = ($('<div>').addClass('stars').data('data-rating="3"')
+  .append($('<span>').addClass('star').html('&nbsp;'))
+  .append($('<span>').addClass('star').html('&nbsp;'))
+  .append($('<span>').addClass('star').html('&nbsp;'))
+  .append($('<span>').addClass('star').html('&nbsp;'))
+  .append($('<span>').addClass('star').html('&nbsp;'))
+  .append($('<p>').text('1/5'))
+  )
+
   let $footer = ($('<footer>')
   .append($('<div>').addClass('likes').text('❤️'))
-  .append($('<div>').addClass('rating').text(resource.rating))
+  .append($rating)
   .append($('<div>').addClass('comments').text(resource.comments))
   )
 

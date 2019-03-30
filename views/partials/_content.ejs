@@ -1,18 +1,27 @@
-<!-- <container>
- <article class='shared-content'>
-  <head>
-    <h5 class='title'>The only place someone can't hear me</h5>
-    <h6 class='username'>Janice from Friends</h6>
-  </head>
-  <div>
-  <img class='post-image' src='https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2016/05/hubble12.jpg?itok=VRlqHWQ4' alt='post-image'>
-  </div>
-  <p>User Description</p>
-  <p>keywords</p>
-  <footer>
-    <div class='likes'>❤️</div>
-    <div class='rating'>5/10</div>
-    <div class='comments'>"God Janice, we get it, you are loud"</div>
-  </footer>
-  </article>
-</container> -->
+<!-- document.addEventListener('DOMContentLoaded', function(){
+  let stars = document.querySelectorAll('.stars');
+  stars.forEach(function(star){
+    star.addEventListener('click',setRating);
+  });
+  let rating = parseInt(document.querySelector('.stars')getAttribute('data-rating'));
+  let target = stars[rating - 1];
+  target.dispatchEvent(new MouseEvent('click'));
+});
+
+function setRating(event) {
+  let span = event.currentTarget;
+  let stars = document.querySelectorAll('.stars');
+  let match = false;
+  stars.forEach(function(star){
+    if(match){
+      star.classList.remove('rated');
+    }else{
+      star.classList.add('rated');
+    }
+    if(star == span){
+      match = true;
+    }
+    let starValue = parseInt(star.getAttribute('data-val'));
+  })
+  document.querySelector('.stars').setAttribute('data-rating', num)
+} -->
