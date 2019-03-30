@@ -1,10 +1,5 @@
 html {
   box-sizing: border-box;
-  // background: url(https://en.wikipedia.org/wiki/Portal:Waterfalls#/media/File:Kravica_Waterfalls,Bosnia_%26_Herzegovina.jpg) no-repeat center center fixed; 
-  // -webkit-background-size: cover;
-  // -moz-background-size: cover;
-  // -o-background-size: cover;
-  // background-size: cover;
 }
 
 *, *:before, *:after {
@@ -21,14 +16,14 @@ body {
 
   .container {
     background-color: #698f81;
-    height: 100%;
-    width:100%;
     margin-top:30px;
+    min-height: 100%;
     max-width: 100%;
   }
 
   .resource-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row-reverse;
     align-items: baseline;
     justify-content: space-evenly;
