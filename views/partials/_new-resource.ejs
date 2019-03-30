@@ -1,14 +1,11 @@
-<div>
-    <p>'Side container for liked posts'</p>
-  </div>
-  <form action="/resources/:id/newResource" method="POST">
-      <label>Title</label>
-      <input name="title" type="text"></input>
-      <label>URL</label>
-      <input name="URL" type="text"></input>
-      <label>image</label>
-      <input name="image" type="text"></input>
-      <label>description</label>
-      <input name="description" type="text"></input>
-      <input type="submit" name="submit">
-    </form>
+<form id='new-resource-form' action="/resources/:id/newResource" method="POST">
+  <label>The title of your post:</label>
+  <input class='submission-form' name="title" type="text"></input>
+  <label>The URL that you wish to share:</label>
+  <input class='submission-form' name="URL" type="text"></input>
+  <label>An image address for good measure:</label>
+  <input class='submission-form' name="image" type="text"></input>
+  <label>A description in your own words:</label>
+  <input class='submission-form' name="description" type="text"></input>
+  <input id='submission-button' type="submit" name="submit">
+</form>
