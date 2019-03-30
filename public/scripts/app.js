@@ -25,7 +25,7 @@ function createPost(resource){
   let $footer = ($('<div>').addClass('footer').attr('data-id', resource.id)
     .append($('<div>').addClass('likes').text('❤️'))
     .append($('<div>').addClass('nOfLikes').text(resource.likes))
-    .append($('<div>').addClass('rating').text('⭐'))
+    .append($('<div>').addClass('rating').text(Math.round(resource.ratings)))
     .append($('<input>').addClass('comments').text(resource.comments))
   )
   let $article = ($('<article>').addClass('shared-content')

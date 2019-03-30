@@ -1,9 +1,11 @@
 $('.container').on('click', '.likes', function(){
+  //console.log('clicked')
   const userId = (window.location.href).split('/').pop();
-
-  // const userId = req.session.user.id;
+  //const userId = '4';
   const resourceId= $(this).parent().data('id');
+  console.log('resource id: ', resourceId);
   const currentLikes = Number($(this).siblings('.nOfLikes').text());
+  console.log('likes: ', currentLikes)
   //console.log('current total likes ', currentLikes)
   $.ajax(`/like/${resourceId}/${userId}`, { method: 'GET' })
       .then(function(counter){
@@ -17,7 +19,7 @@ $('.container').on('click', '.likes', function(){
           .done(function(res){
             console.log('unliked')
           })
-        } else if (counter === 0) {
+        } else {
           $(`div[data-id=${resourceId}] > .nOfLikes`).text(currentLikes + 1);
           $.ajax({
             url: `/like/${resourceId}/${userId}`,
