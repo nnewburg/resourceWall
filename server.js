@@ -154,14 +154,6 @@ app.get('/like/:resourceId/:userId', (req, res) => {
   });
 });
 
-app.get('/like/:resourceId/', (req, res) => {
-  knex('user_likes').where('resource_id', req.params.resourceId)
-  .then((results) => {
-    let counter = 0;
-    results.forEach(() => {return counter++})
-    res.json(counter);
-  });
-});
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
