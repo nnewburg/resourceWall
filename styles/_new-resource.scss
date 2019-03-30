@@ -1,0 +1,42 @@
+#new-resource-form{
+  background-color: #D9f0e4;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 600px;
+  border-radius: 5px;
+  border:2px solid #4B5A56;
+  padding:15px;
+  margin: 20px;
+  opacity: 50%;
+
+  label {
+    font-family: 'Crimson Text', serif;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .submission-form{
+    font-family: 'Crimson Text', serif;
+    height: 50%;
+    width: 50%;
+    color:black;
+    font-style: italic;
+  }
+  #submission-button{
+    margin-left: 500px;
+  }
+}
+
+#new-resource-form {
+  animation-duration: 5s;
+  animation-name: slidein;
+}
+@keyframes slidein {
+  from {
+    margin-left:100%;
+  }
+  to{
+    margin-left:40px;
+  }
+}
