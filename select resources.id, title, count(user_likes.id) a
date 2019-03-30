@@ -1,0 +1,7 @@
+select resources.id, title, count(user_likes.id) as likes
+from resources left join user_likes
+ON user_likes.resource_id = resources.id
+group by resources.id;
+
+> knex('resources').leftJoin('user_likes', 'user_likes.resource_id', 'resources.id').select('resources.title').count('user_likes.id as likes').groupBy('resources.id').toString()
+'select "resources"."title", count("user_likes"."id") as "likes" from "resources" left join "user_likes" on "user_likes"."resource_id" = "resources"."id" group by "resources"."id"'

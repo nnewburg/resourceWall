@@ -8,4 +8,4 @@ exports.seed = function(knex, Promise) {
         knex.raw(`SELECT setval('users_id_seq', 3, true)`)
       ]);
     });
-};
+}
