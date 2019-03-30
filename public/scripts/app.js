@@ -10,7 +10,7 @@ $(() => {
 });
 
 function createPost(resource){
-  console.log(resource);
+  //console.log(resource);
   let $head = ($('<head>')
 
     // .append($('<img>').addClass('user-avatar').attr('scr', user.avatar))
