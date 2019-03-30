@@ -1,7 +1,7 @@
 $('.container').on('click', '.likes', function(){
-  //console.log('clicked')
-  //const userId = (window.location.href).split('/').pop();
-  const userId = '4';
+  const userId = (window.location.href).split('/').pop();
+
+  // const userId = req.session.user.id;
   const resourceId= $(this).parent().data('id');
   const currentLikes = Number($(this).siblings('.nOfLikes').text());
   //console.log('current total likes ', currentLikes)
