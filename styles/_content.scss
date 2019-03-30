@@ -1,7 +1,6 @@
 $left-margin: 10px;
 $poster-backgound: #D9f0e4;
 
-
 .shared-content{
   height: 30%;
   font-family: 'Crimson Text', serif;
@@ -50,7 +49,7 @@ $poster-backgound: #D9f0e4;
     align-items: center;
 
     .post-image{
-      height: 80%;
+      // height: 80%;
       width: 100%;
       margin:20px;
       max-width: 200px;
@@ -84,6 +83,32 @@ $poster-backgound: #D9f0e4;
 
     .likes{
       margin-left: $left-margin;
+    }
+
+    .star{
+      color:rgb(238, 238, 62);
+      font-size: 100%;
+      padding: 0px;
+    }
+
+    .star::before{
+      content: '\2606';
+      cursor: pointer;
+    }
+
+    .star.rated::before{
+      content: '\2605';
+    }
+
+    .stars{
+      counter-reset: rateme 0;
+      font-size: 200%;
+    }
+    .star.rated{
+      counter-increment: rateme 1;
+    }
+    .stars::after{
+      content: counter(rateme) '/5';
     }
 
     .comments{
