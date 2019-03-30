@@ -9,7 +9,6 @@ $('.container').on('click', '.likes', function(){
   //console.log('current total likes ', currentLikes)
   $.ajax(`/like/${resourceId}/${userId}`, { method: 'GET' })
       .then(function(counter){
-        //console.log('number of likes from this user', counter)
         if(counter === 1)  {
           $(`div[data-id=${resourceId}] > .nOfLikes`).text(currentLikes - 1);
           $.ajax({
@@ -17,6 +16,7 @@ $('.container').on('click', '.likes', function(){
             type: "PUT"
           })
           .done(function(res){
+             console.log(counter);
             console.log('unliked')
           })
         } else {
@@ -26,6 +26,7 @@ $('.container').on('click', '.likes', function(){
             type: "PUT"
           })
           .done(function(res){
+             console.log(counter);
             console.log('liked')
           })
         }
