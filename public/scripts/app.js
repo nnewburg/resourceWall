@@ -1,5 +1,3 @@
-
-
 $(() => {
   $.ajax({
     method: "GET",
@@ -9,7 +7,7 @@ $(() => {
       renderPosts(createPost(resource))
 
     }
-  });;
+  });
 
 });
 

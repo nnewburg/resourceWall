@@ -90,6 +90,7 @@ app.post("/register", (req, res) => {
   queries.addUser(knex, req.body).then(result => {
     knex('users').where({email: req.body.email}).then(result  => {
       req.session.user = result[0];
+      console.log(req.session.user.id)
       res.redirect(`/resources/${req.session.user.id}`);
     });
   });
