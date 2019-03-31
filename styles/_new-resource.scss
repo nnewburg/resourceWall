@@ -1,14 +1,15 @@
 #new-resource-form{
-  background-color: #D9f0e4;
+  background-color: #6e8477;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: center;
-  width: 600px;
+  width: 60%;
   border-radius: 5px;
   border:2px solid #4B5A56;
-  padding:15px;
-  margin: 20px;
+  padding:5%;
+  margin-left: 20%;
+  margin-right: 20%;
   opacity: 50%;
 
   label {
@@ -17,6 +18,7 @@
     font-weight: bold;
   }
   .submission-form{
+    flex-grow: inherit;
     font-family: 'Crimson Text', serif;
     height: 50%;
     width: 50%;
@@ -24,7 +26,8 @@
     font-style: italic;
   }
   #submission-button{
-    margin-left: 500px;
+    display: flex;
+    align-self: flex-end;
   }
 }
 
@@ -37,6 +40,6 @@
     margin-left:100%;
   }
   to{
-    margin-left:40px;
+    position:center;
   }
 }
