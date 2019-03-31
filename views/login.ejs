@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Waterhole - Login</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Waterhole - Login</title>
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-        <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-        <link rel='stylesheet' href='/styles/styles.css'type='text/css'/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i" rel="stylesheet">
-        <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-        <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel='stylesheet' href='/styles/styles.css'type='text/css'/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i" rel="stylesheet">
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
 
-      </head>
-
-      <body>
-        <% include ./partials/_header %>
-        <main class='container' id='resource-container'>
-    <form action="/login" method="POST">
-      <div class="form-group mb-2">
-        <label for="email">Registered Email</label>
-        <input class="form-control" type="email" name="email" placeholder="example@gmail.com" style="width: 300px" >
-        <label for="password">Password</label><br>
-        <input class="form-control" type="password" name="password" placeholder="Enter your password here" style="width: 300px">
-        <button type="submit" class="btn btn-primary" style="margin-top:5px"> Login </button>
-        </div>
-      </form>
-    </main>
+  <body id='users'>
+    <% include ./partials/_header %>
+    <div class='login-form'>
+      <main>
+        <form method="POST" action="/login">
+          <label for="email">Email: </label>
+            <input class="form-control" type="email" name="email" placeholder="example@gmail.com" style="width: 300px" >
+          <label for="password">Password: </label><br>
+            <input class="form-control" type="password" name="password" placeholder="Enter your password here" style="width: 300px">
+          <div class='right'>
+            <button type="submit" class="btn-light" style="margin-top:5px"> Login </button>
+          </div>
+        </form>
+      </main>
+    </div>
   </body>
 </html>

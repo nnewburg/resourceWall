@@ -26,6 +26,7 @@ module.exports = (knex) => {
   return router;
 }
 //////////// query used to join all the tables:
+
 // select distinct resources.id, title, users.name, array_agg(distinct user_likes.id) as likes, array_agg(resource_ratings.rating) as ratings, array_agg(distinct keywords.name) as tags, array_agg(distinct comments.content) as allComments, array_agg(distinct user_comments.name) as commentedBy
 // from resources 
 // join users on resources.user_id = users.id
@@ -37,4 +38,5 @@ module.exports = (knex) => {
 // left join users as user_comments on comments.user_id = user_comments.id
 // group By resources.id, users.name, user_comments.name, content
 // order by resources.id asc;
+
 //////////////

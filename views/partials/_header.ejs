@@ -1,4 +1,4 @@
-<h1> The Waterhole </h1>
+
   <% if (!user) { %>
     <nav id='nav-bar'>
       <div>
@@ -19,7 +19,7 @@
     <% } else { %>
   <nav id='nav-bar'>
       <div>
-      <img class='logo' src='../images/hippo.png'>
+      <img class='avatar' src='<%= user.profile_image %>'>
       <input class ="search-bar" type="text" name="search-bar" placeholder="search">
       <button type="button" class="btn-light" id="search-button">Search</button>
     </div>
@@ -29,7 +29,7 @@
       <form class="form-inline" method ="POST" action ="/logout">
         <button type = "submit" class="btn-light" id="logout-button" value="Logout"> Logout</button>
       </form>
-      <form class="form-inline" method="GET" action=`/resources/users/:id/edit` >
+      <form class="form-inline" method="POST" action="/users/edit">
         <button type = "submit" class="btn-light" id="edit-profile-button" value="Edit Profile"> Edit Profile </button>
       </form>
       </div>

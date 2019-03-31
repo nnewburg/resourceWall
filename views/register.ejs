@@ -15,34 +15,41 @@
 
 </head>
 
-<body>
+<body id='users'>
   <% include ./partials/_header %>
-    <main class='container' id='resource-container'>
-  <form id='register-form' action='/register' method='POST'>
-    <div class='form-group mb-2'>
-      <label for='name'>Your Name</label>
-      <input class='form-control' type='text' name='name' placeholder='Your name here' style='width: 300px' >
-      <label for='email'>Your Email</label>
-      <input class='form-control' type='email' name='email' placeholder='example@gmail.com' style='width: 300px' >
-      <label for='password'>Password</label>
-      <br/>
-      <input class='form-control' type='password' name='password' placeholder='Enter your password here' style='width: 300px'>
-      <button type='submit' class='btn btn-primary' style='margin-top:5px'> Register </button>
-      <div class='custom-select' style='width:200px;'>
-          <select name='avatar'>
-            <option class='logo' value='../images/ape.png'  style='width:80px;height:80px;'> Ape </option>
-            <option class='logo' value='../images/cheetah.png'  style='width:80px;height:80px;'> Cheetah </option>
-            <option class='logo' value='../images/elephant.png'  style='width:80px;height:80px;'> Elephant </option>
-            <option class='logo' value='../images/giraffe.png'  style='width:80px;height:80px;'> Giraffe </option>
-            <option class='logo' value='../images/koala.png'  style='width:80px;height:80px;'> Koala </option>
-            <option class='logo' value='../images/panda.png'  style='width:80px;height:80px;'> Panda </option>
-            <option class='logo' value='../images/rhinoceros.png'  style='width:80px;height:80px;'> Rhinoceros </option>
-            <option class='logo' value='../images/tarsier.png'  style='width:80px;height:80px;'> Tarsier </option>
-            <option class='logo' value='../images/tiger.png'  style='width:80px;height:80px;'> Tiger </option>
-            <option class='logo' value='../images/wildebeest.png'  style='width:80px;height:80px;'> Wildebeest </option>
-            <option class='logo' value='../images/wolf.png'  style='width:80px;height:80px;'> Wolf </option>
-          </select>
-        </div>
+  <main id='user-avatar'>
+    <figure>
+      <img id='avatar-display' src='/images/tiger.png'>
+    </figure>
+  </main>
+  <div class='login-form'>
+  <form method='POST' action='/register' id='register-form'>
+    <main id="register">
+      <label for='name'>Your Name: </label>
+      <input class='form-control' type='text' name='name' placeholder='Your name here'>
+      <label for='name'>Your Avatar: </label>
+      <select id='avatar' name='profile_image'>
+        <option class='avatar' value='../images/ape.png'> Ape </option>
+        <option class='avatar' value='../images/baboon.png'> Baboon </option>
+        <option class='avatar' value='../images/cheetah.png'> Cheetah </option>
+        <option class='avatar' value='../images/elephant.png'> Elephant </option>
+        <option class='avatar' value='../images/fox.png'> Fox </option>
+        <option class='avatar' value='../images/giraffe.png'> Giraffe </option>
+        <option class='avatar' value='../images/goat.png'> Goat </option>
+        <option class='avatar' value='../images/koala.png'> Koala </option>
+        <option class='avatar' value='../images/lion.png'> Lion </option>
+        <option class='avatar' value='../images/panda.png'> Panda </option>
+        <option class='avatar' value='../images/rhinoceros.png'> Rhinoceros </option>
+        <option class='avatar' value='../images/tarsier.png'> Tarsier </option>
+        <option class='avatar' value='../images/tiger.png'> Tiger </option>
+        <option class='avatar' value='../images/wildebeest.png'> Wildebeest </option>
+        <option class='avatar' value='../images/wolf.png'> Wolf </option>
+      </select>
+      <label for='email'>Your Email: </label>
+      <input class='form-control' type='email' name='email' placeholder='example@gmail.com'>
+      <label for='password'>Password: </label>
+      <input class='form-control' type='password' name='password' placeholder='Enter your password here'>
+       <button type='submit' class='btn-light' style='margin-top:5px'> Register </button>
     </div>
   </form>
   </main>
