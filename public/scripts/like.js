@@ -13,21 +13,26 @@ $('.container').on('click', '.likes', function(){
           $(`div[data-id=${resourceId}] > .nOfLikes`).text(currentLikes - 1);
           $.ajax({
             url: `/unlike/${resourceId}/${userId}`,
-            type: "PUT"
+            method: 'PUT',
+            success: function(result){
+              console.log('unliked')
+            },
+            error: function(err){
+              console.log("there was an unliking error");
+            }
           })
-          .done(function(res){
-             console.log(counter);
-            console.log('unliked')
-          })
+          
         } else {
           $(`div[data-id=${resourceId}] > .nOfLikes`).text(currentLikes + 1);
           $.ajax({
             url: `/like/${resourceId}/${userId}`,
-            type: "PUT"
-          })
-          .done(function(res){
-             console.log(counter);
-            console.log('liked')
+            method: 'PUT',
+            success: function(result){
+              console.log('liked')
+            },
+            error: function(err){
+              console.log("there was an liking error");
+            }
           })
         }
       })

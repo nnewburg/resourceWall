@@ -145,7 +145,9 @@ app.get('/search/:keyword', (req, res) => {
 });
 
 app.put('/unlike/:resourceId/:userId', (req, res) => {
-  knex('user_likes').where('user_id', req.session.user.id).del()
+  knex('user_likes').where('user_id', req.session.user.id)
+  .andWhere('resource_id', req.params.resourceId)
+  .del()
   .then((results) => {
     res.json(results);
   });
