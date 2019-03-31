@@ -37,24 +37,24 @@ $(() => {
       var $star1 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
     }
     if(avgRating >= 2){
-      var $star2 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;')
+      var $star2 = $('<span data-star-value="2">').addClass('star rated').html('&nbsp;')
     } else {
-      var $star2 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
+      var $star2 = $('<span data-star-value="2">').addClass('star').html('&nbsp;')
     }
     if(avgRating >= 3){
-      var $star3 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;')
+      var $star3 = $('<span data-star-value="3">').addClass('star rated').html('&nbsp;')
     } else {
-      var $star3 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
+      var $star3 = $('<span data-star-value="3">').addClass('star').html('&nbsp;')
     }
     if(avgRating >= 4){
-      var $star4 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;')
+      var $star4 = $('<span data-star-value="4">').addClass('star rated').html('&nbsp;')
     } else {
-      var $star4 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
+      var $star4 = $('<span data-star-value="4">').addClass('star').html('&nbsp;')
     }
     if(avgRating >= 5){
-      var $star5 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;')
+      var $star5 = $('<span data-star-value="5">').addClass('star rated').html('&nbsp;')
     } else {
-      var $star5 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
+      var $star5 = $('<span data-star-value="5">').addClass('star').html('&nbsp;')
     }
     $rating.append($star1).append($star2).append($star3).append($star4).append($star5)
 
@@ -81,16 +81,16 @@ function renderPosts(data) {
 }
 
 
-$('.container').on('click', '.star', function(e) {
-  let starValue = e.target.dataset.starValue;
-  e.target.parentElement.querySelectorAll('.star').forEach(star => {
-    if (star.dataset.hasOwnProperty('starValue') && star.dataset.starValue <= starValue) {
-      star.classList.add('rated');
-    } else {
-      star.classList.remove('rated');
-    }
-  });
-});
+// $('.container').on('click', '.star', function(e) {
+//   let starValue = e.target.dataset.starValue;
+//   e.target.parentElement.querySelectorAll('.star').forEach(star => {
+//     if (star.dataset.hasOwnProperty('starValue') && star.dataset.starValue <= starValue) {
+//       star.classList.add('rated');
+//     } else {
+//       star.classList.remove('rated');
+//     }
+//   });
+// });
 
 
 });

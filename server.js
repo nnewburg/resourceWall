@@ -171,8 +171,21 @@ app.put('/comments/:resourceId/:userId', (req, res) => {
   });
 })
 
-app.get('/:userId/ratings', (req, res) => {
-  knex('resource_ratings').where('resource_ratings.user_id', req.params.userId)
+app.get('/ratings/:resourceId/:userId', (req, res) => {
+  knex('resource_ratings')
+  .select('rating')
+  .where('resource_ratings.user_id', req.session.user.id)
+  .andWhere('resource_ratings.resource_id', req.params.resourceId)
+  .then((results) => {
+    res.json(results);
+  });
+})
+
+app.put('/ratings/:resourceId/:userId', (req, res) => {
+  console.log('userId ',req.params.userId)
+  console.log('resId ',req.params.resourceId)
+  knex('resource_ratings')
+  .insert({'rating': req.body.myRating, 'user_id': req.params.userId, 'resource_id': req.params.resourceId})
   .then((results) => {
     res.json(results);
   });

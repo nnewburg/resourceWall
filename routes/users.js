@@ -25,7 +25,7 @@ module.exports = (knex) => {
 
   return router;
 }
-//////////// the query to join all the tables:
+//////////// query used to join all the tables:
 // select resources.id, title, users.name, array_agg(distinct user_likes.id) as likes, array_agg(distinct resource_ratings.rating) as ratings
 // from resources 
 // join users on resources.user_id = users.id
