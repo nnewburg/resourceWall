@@ -65,9 +65,22 @@ app.get("/register", (req, res) => {
   res.render("register", templateVars);
 });
 
-app.get("/resources/users/:id/edit", (req, res) => {
+app.post("/users/edit", (req, res) => {
+  res.redirect(`/users/edit/${req.session.user.id}`);
+});
+
+app.get("/users/edit/:id", (req, res) => {
   let templateVars = {user: req.session.user};
   res.render('edit_user_profile', templateVars)
+});
+
+app.post("/editAUser", (req, res) => {
+  console.log(req.session.user.id)
+  knex('users')
+  .where({ id: req.session.user.id })
+  .update({ email: req.body.email, name:req.body.name, password:req.body.password }).then(result  => {
+      res.redirect('/');
+    });
 });
 
 
