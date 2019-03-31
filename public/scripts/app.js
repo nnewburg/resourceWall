@@ -11,7 +11,6 @@ $(() => {
   function createPost(resource){
     let avgRating = Math.round(resource.ratings)
     let $head = ($('<head>')
-      // .append($('<img>').addClass('user-avatar').attr('scr', user.avatar))
       .append($('<h5>').addClass('title').text(resource.title))
       .append($('<h6>').addClass('username').text(resource.name))
     );
