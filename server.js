@@ -197,7 +197,7 @@ app.put('/comments/:resourceId/:userId', (req, res) => {
 //   });
 // })
 
-app.post('/ratings/:resourceId/:userId', (req, res) => {
+app.put('/ratings/:resourceId/:userId', (req, res) => {
   console.log('userId ',req.params.userId)
   console.log('resId ',req.params.resourceId)
   knex('resource_ratings')
@@ -206,7 +206,6 @@ app.post('/ratings/:resourceId/:userId', (req, res) => {
     res.json(results);
   });
 })
-
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

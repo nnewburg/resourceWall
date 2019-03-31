@@ -12,7 +12,7 @@ $('.container').on('click', '.star', function(e) {
     const resourceId= $(this).parent().parent().data('id');
 
     $.ajax({
-      method: 'POST',
+      method: 'PUT',
       url: `/ratings/${resourceId}/${userId}`,
       data: {myRating: starValue},
       success: function(result){
