@@ -15,6 +15,7 @@ $poster-backgound: #819277;
 
   head{
     background: $poster-backgound;
+    overflow-wrap: break-word;
     display: flex;
     align-items: center;
     justify-content: space-between;
