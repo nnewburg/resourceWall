@@ -85,7 +85,7 @@ body .resource-container {
     padding-right: 2px;
   }
   #nav-bar h1 {
-    color: black;
+    color: black !important;
   }
   #nav-bar .header {
     font-size: 32px;
@@ -227,6 +227,33 @@ body .resource-container {
   }
 }
 
+body {
+  background: repeat url("/images/background.png");
+}
+
+body .login-form {
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 200px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: black solid 2px;
+  font-family: 'Crimson Text', serif;
+  font-size: 36px;
+  background: #6e8477;
+  opacity: .9;
+}
+
+body .login-form main {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
 .shared-content {
   height: 30%;
   font-family: 'Crimson Text', serif;
@@ -237,6 +264,7 @@ body .resource-container {
   border: 2px solid #4c4d4e;
   margin-top: 20px;
   margin: 20px;
+  opacity: .9;
 }
 
 .shared-content head {
