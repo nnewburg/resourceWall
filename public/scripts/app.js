@@ -55,7 +55,7 @@ $(() => {
       .append($rating)
       .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
       .append($('<div>').addClass('showComments').text('💬'))
-      .append($('<div>').addClass('keyword').text('Keyword').attr('keyword','1'))
+      .append($('<div>').addClass('keyword').text(resource.tags).attr('keyword','1'))
     )
     let $article = ($('<article>').addClass('shared-content')
       .append($head)
