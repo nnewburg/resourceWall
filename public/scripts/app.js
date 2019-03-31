@@ -23,7 +23,7 @@ $(() => {
 
     let $rating = $('<div>').addClass('stars').attr('data-rating', "3")
     if(avgRating >= 1){
-      var $star1 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;') 
+      var $star1 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;')
     } else {
       var $star1 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
     }
@@ -55,7 +55,7 @@ $(() => {
       .append($rating)
       .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
       .append($('<div>').addClass('showComments').text('💬'))
-      .append($('<div>').addClass('keyword').text('Keyword').attr('keyword','1'))
+      .append($('<div>').addClass('keyword').text('').attr('keyword','1'))
     )
     let $article = ($('<article>').addClass('shared-content')
       .append($head)
