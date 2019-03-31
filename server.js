@@ -171,6 +171,13 @@ app.put('/comments/:resourceId/:userId', (req, res) => {
   });
 })
 
+app.get('/:userId/ratings', (req, res) => {
+  knex('resource_ratings').where('resource_ratings.user_id', req.params.userId)
+  .then((results) => {
+    res.json(results);
+  });
+})
+
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

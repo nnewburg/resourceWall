@@ -1,6 +1,4 @@
 "use strict";
-// knex.raw('array_agg(distinct user_likes.id) as likes'), knex.raw('array_agg(distinct resource_ratings.rating) as ratings')
-//distinct(knex.raw('ON (column) column'))
 const express = require('express');
 const router  = express.Router();
 
@@ -12,10 +10,12 @@ module.exports = (knex) => {
       .join('users', 'resources.user_id', 'users.id')
       .leftJoin('resource_ratings', 'resources.id', 'resource_ratings.resource_id')
       .leftJoin('comments', 'resources.id', 'comments.resource_id')
+      //.leftJoin('resource_ratings as myRatings', 'myRatings.user_id', req.session.user.id)
       .select(['resources.title as title', 'resources.url as url', 'users.name as name', 'resources.id as id', 'resources.description as description', 'resources.image as image', knex.raw('array_agg(distinct content) as comments')])
       .countDistinct('user_likes.id as likes')
       //.countDistinct('content as comments')
       .avgDistinct('resource_ratings.rating as ratings')
+      //.distinct('ON myRatings.rating as myRating')
       .groupBy('resources.id', 'users.name')
       .orderBy('resources.id', 'DESC')
       .then((results) => {
@@ -25,7 +25,7 @@ module.exports = (knex) => {
 
   return router;
 }
-////////////
+//////////// the query to join all the tables:
 // select resources.id, title, users.name, array_agg(distinct user_likes.id) as likes, array_agg(distinct resource_ratings.rating) as ratings
 // from resources 
 // join users on resources.user_id = users.id
