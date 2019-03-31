@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         knex('resources').insert({id: 4, title: 'My birthday wish', url:'https://img.buzzfeed.com/buzzfeed-static/static/2015-10/29/11/enhanced/webdr06/enhanced-2099-1446132874-22.jpg?downsize=800:*&output-format=auto&output-quality=auto', image:'https://images-na.ssl-images-amazon.com/images/I/71ICjgNrlbL._SL1500_.jpg', description:'A build your own fort kit :smile', user_id: 1}),
         knex('resources').insert({id: 5, title: 'New Orlean Map', url:'https://www.bigeasy.com/onthetown/maps', image:'https://civilrightstrail.com/app/uploads/2017/10/Destination_NewOrleans_page.jpg', description:'New Orleans for a quick reference', user_id: 1}),
         knex('resources').insert({id: 6, title: 'Fauna and Flora', url:'https://www.fauna-flora.org/', image:'https://www.parconazionaledelvesuvio.it/wp-content/uploads/2018/03/la_fauna-ente_parco_nazionale_del_vesuvio-01.jpg', description:'Next level magic', user_id: 2}),
-        knex.raw(`SELECT setval('resources_id_seq', 3, true)`)
+        knex.raw(`SELECT setval('resources_id_seq', 6, true)`)
       ]);
     });
 };
