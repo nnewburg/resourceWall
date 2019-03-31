@@ -1,0 +1,50 @@
+#users {
+  background: no-repeat url("/images/background.png");
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  height: 800px;
+
+  .login-form {
+    width: 500px;
+    margin:0 auto;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    border: black solid 2px;
+    font-family: 'Crimson Text', serif;
+    font-size: 36px;
+    background: #6e8477;
+    opacity: .9;
+
+      main {
+        margin-top:10%;
+        margin-bottom:10%;
+        padding: 5px;
+      }
+
+      #register{
+        font-size: 21px;
+        margin-top:5%;
+      }
+
+      #avatar {
+        width: 100%;
+      }
+  }
+
+  #user-avatar{
+    margin-right: 400px;
+    background: #6e8477;
+    border: black solid 2px;
+    opacity: .9;
+    width: 20%;
+    height: auto;
+    #avatar-display{
+      margin-top: 5%;
+      position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

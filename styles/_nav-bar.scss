@@ -25,6 +25,13 @@ $a-color: black;
     width: 80px;
   }
 
+  .avatar{
+    height: 80px;
+    width:80px;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
   .search-bar{
     width:200px;
     height: 50%;
@@ -37,7 +44,7 @@ $a-color: black;
     padding-right: 2px;
   }
   h1{
-    color:black;
+    color:black !important;
   }
   .header{
     font-size: $header-size * 2;
