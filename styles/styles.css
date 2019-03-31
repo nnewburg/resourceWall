@@ -18,6 +18,7 @@ body {
   margin: auto;
   height: 100vw;
   font-size: 24px;
+  padding-top: 20px;
 }
 
 body .container {
@@ -227,14 +228,23 @@ body .resource-container {
   }
 }
 
-body {
-  background: repeat url("/images/background.png");
+#users {
+  background: no-repeat url("/images/background.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  height: 800px;
 }
 
-body .login-form {
+#users .login-form {
   width: 500px;
   margin: 0 auto;
-  margin-top: 200px;
   height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,9 +259,35 @@ body .login-form {
   opacity: .9;
 }
 
-body .login-form main {
+#users .login-form main {
   margin-top: 10%;
   margin-bottom: 10%;
+  padding: 5px;
+}
+
+#users .login-form #register {
+  font-size: 21px;
+  margin-top: 5%;
+}
+
+#users .login-form #avatar {
+  width: 100%;
+}
+
+#users #user-avatar {
+  margin-right: 400px;
+  background: #6e8477;
+  border: black solid 2px;
+  opacity: .9;
+  width: 20%;
+  height: auto;
+}
+
+#users #user-avatar #avatar-display {
+  margin-top: 5%;
+  position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .shared-content {
