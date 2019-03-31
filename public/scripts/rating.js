@@ -1,6 +1,5 @@
 $('.container').on('click', '.star', function(e) {
-    let starValue = e.target.dataset.starValue;
-    console.log('star id ', starValue)
+    let starValue = e.target.dataset.starValue; //star id
     e.target.parentElement.querySelectorAll('.star').forEach(star => {
       if (star.dataset.hasOwnProperty('starValue') && star.dataset.starValue <= starValue) {
         star.classList.add('rated');
@@ -11,7 +10,6 @@ $('.container').on('click', '.star', function(e) {
 
     const userId = (window.location.href).split('/').pop();
     const resourceId= $(this).parent().parent().data('id');
-    console.log('resource id ', resourceId)
 
     $.ajax({
       method: 'PUT',

@@ -7,15 +7,6 @@ $(() => {
       renderPosts(createPost(resource))
     }
   });
-  const userId = (window.location.href).split('/').pop();
-  $.ajax({
-    method: "GET",
-    url: `/${userId}/ratings`
-  }).done((myRating) => {
-    return myRating;
-    }
-  );
-
 
   function createPost(resource){
     let avgRating = Math.round(resource.ratings)
@@ -32,7 +23,7 @@ $(() => {
 
     let $rating = $('<div>').addClass('stars').attr('data-rating', "3")
     if(avgRating >= 1){
-      var $star1 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;') // have to use var to access the star from if scope
+      var $star1 = $('<span data-star-value="1">').addClass('star rated').html('&nbsp;') 
     } else {
       var $star1 = $('<span data-star-value="1">').addClass('star').html('&nbsp;')
     }
@@ -79,18 +70,4 @@ $(() => {
 function renderPosts(data) {
     data.appendTo($('.resource-container'));
 }
-
-
-// $('.container').on('click', '.star', function(e) {
-//   let starValue = e.target.dataset.starValue;
-//   e.target.parentElement.querySelectorAll('.star').forEach(star => {
-//     if (star.dataset.hasOwnProperty('starValue') && star.dataset.starValue <= starValue) {
-//       star.classList.add('rated');
-//     } else {
-//       star.classList.remove('rated');
-//     }
-//   });
-// });
-
-
 });

@@ -30,7 +30,7 @@ module.exports = (knex) => {
 // from resources 
 // join users on resources.user_id = users.id
 // left join user_likes on resources.id = user_likes.resource_id
-// left join resource_ratings on resources.id = resource_ratings.resource_id
+// left join resource_ratings on resource_ratings.resource_id
 // group By resources.id, users.name
 // order by resources.id asc
 //////////////

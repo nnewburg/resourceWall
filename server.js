@@ -118,10 +118,20 @@ app.post("/resources/:id/newResource", (req, res) => {
 
 app.get('/search/:keyword', (req, res) => {
   //console.log("testing ",req.params.keyword);
-  knex.select('*').from('resources')
+  knex('resources')
       .leftJoin('resource_keywords', 'resources.id', 'resource_keywords.resource_id')
       .leftJoin('keywords', 'resource_keywords.keyword_id', 'keywords.id')
       .join('users', 'resources.user_id', 'users.id')
+      .leftJoin('resource_ratings', 'resources.id', 'resource_ratings.resource_id')
+      .leftJoin('comments', 'resources.id', 'comments.resource_id')
+      .leftJoin('user_likes', 'resources.id', 'user_likes.resource_id')
+      .select(['resources.title as title', 'resources.url as url', 'users.name as name', 'resources.id as id', 'resources.description as description', 'resources.image as image', knex.raw('array_agg(distinct content) as comments')])
+      .countDistinct('user_likes.id as likes')
+      //.countDistinct('content as comments')
+      .avgDistinct('resource_ratings.rating as ratings')
+      //.distinct('ON myRatings.rating as myRating')
+      .groupBy('resources.id', 'users.name')
+      .orderBy('resources.id', 'DESC')
       .where('keywords.name', req.params.keyword) // search by keyword
       .orWhere('users.name', req.params.keyword) //search by user's name
       .then((results) => {
