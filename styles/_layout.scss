@@ -18,7 +18,8 @@ body {
 
 
   .container {
-    background: repeat url("/images/background.png");
+    background: url("/images/background.png");
+    background-size: cover;
     background-color: #698f81;
     margin-top:30px;
     min-height: 100%;
