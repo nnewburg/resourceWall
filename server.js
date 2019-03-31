@@ -142,7 +142,7 @@ app.get('/search/:keyword', (req, res) => {
       .leftJoin('resource_ratings', 'resources.id', 'resource_ratings.resource_id')
       .leftJoin('comments', 'resources.id', 'comments.resource_id')
       .leftJoin('user_likes', 'resources.id', 'user_likes.resource_id')
-      .select(['resources.title as title', 'resources.url as url', 'users.name as name', 'resources.id as id', 'resources.description as description', 'resources.image as image', knex.raw('array_agg(distinct content) as comments')])
+      .select(['resources.title as title', 'resources.url as url', 'users.name as name', 'resources.id as id', 'resources.description as description', 'resources.image as image', knex.raw('array_agg(distinct content) as allComments'), knex.raw('array_agg(distinct keywords.name) as tags')])
       .countDistinct('user_likes.id as likes')
       //.countDistinct('content as comments')
       .avgDistinct('resource_ratings.rating as ratings')

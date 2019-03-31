@@ -70,9 +70,7 @@ function updatePost(resource){
       .append($head)
       .append($body)
       .append($footer)
-      .append($('<div>').addClass('commentsContainer')
-      .append($('<div>').addClass('allComments').text(`COMMENTS ${resource.allComments}`))
-      .append($('<div>').addClass('commentedBy').text(` By ${resource.commentedBy}`)))
+      .append($('<div>').addClass('commentsContainer').text(`COMMENTS ${resource.allcomments}`))
     )
       return $article;
 
