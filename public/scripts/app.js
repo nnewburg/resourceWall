@@ -42,7 +42,7 @@ $(() => {
       .append($head)
       .append($body)
       .append($footer)
-      .append($('<div>').addClass('commentsContainer'))
+      .append($('<div>').addClass('commentsContainer').text(resource.comments))
     );
       return $article;
   }

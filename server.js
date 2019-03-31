@@ -121,11 +121,11 @@ app.get('/search/:keyword', (req, res) => {
   knex.select('*').from('resources')
       .leftJoin('resource_keywords', 'resources.id', 'resource_keywords.resource_id')
       .leftJoin('keywords', 'resource_keywords.keyword_id', 'keywords.id')
-      //.join('users', 'resources.user_id', 'users.id')
+      .join('users', 'resources.user_id', 'users.id')
       .where('keywords.name', req.params.keyword) // search by keyword
-      //.orWhere('users.name', req.params.keyword) //search by user's name
+      .orWhere('users.name', req.params.keyword) //search by user's name
       .then((results) => {
-        console.log("we are in server ",results);
+        //console.log("we are in server ",results);
         res.json(results);
       })
 });
