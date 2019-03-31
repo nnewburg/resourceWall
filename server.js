@@ -52,7 +52,11 @@ app.use("/api/users", usersRoutes(knex));
 // Home page
 app.get("/", (req, res) => {
   let templateVars = {user: req.session.user};
-  res.redirect('/resources')
+  if(req.session.user){
+    res.redirect(`/resources/${req.session.user.id}`)
+  } else {
+    res.redirect(`/resources`)
+  }
 });
 
 //Register page
