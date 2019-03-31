@@ -1,8 +1,8 @@
 $height-of-contents: 70%;
 $header-size: 16px;
-$background-color: #4B5a56;
+$background-color: #6e8477;
 $width: 100%;
-
+$a-color: black;
 
 @media screen and (min-width: 768px) {
 #nav-bar {
@@ -18,7 +18,7 @@ $width: 100%;
   padding:0px;
   position: fixed;
   top: 0;
-  border-bottom: black;
+  border-bottom:2px solid #4c4d4e;
 
   .logo{
     height: 80px;
@@ -36,10 +36,13 @@ $width: 100%;
     padding-left: 2px;
     padding-right: 2px;
   }
-
+  h1{
+    color:black;
+  }
   .header{
     font-size: $header-size * 2;
   }
+
 
   .right-header{
     display:flex;
@@ -66,6 +69,7 @@ $width: 100%;
     padding:0px;
     position: fixed;
     top: 0;
+    border-bottom:2px solid #4c4d4e;
 
     .logo{
       display:none !important;
@@ -87,8 +91,11 @@ $width: 100%;
         padding-right: 2px;
       }
 
+      h1{
+        color:black;
+      }
+
       .header{
-        // display:none !important;
         font-size: $header-size * 2;
       }
 
@@ -118,6 +125,7 @@ $width: 100%;
     padding:0px;
     position: fixed;
     top: 0;
+    border-bottom:2px solid #4c4d4e;
 
     .logo{
       display:none !important;

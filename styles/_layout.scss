@@ -13,8 +13,11 @@ body {
   margin: auto;
   height: 100vw;
   font-size: 24px;
+  // background: no-repeat url("/images/background.jpg");
+
 
   .container {
+    background: repeat url("/images/background.png");
     background-color: #698f81;
     margin-top:30px;
     min-height: 100%;

@@ -1,13 +1,13 @@
 $('#search-button').on('click', function(){
   //console.log('clicked')
   const searchKeyWord = $('.search-bar').val();
-  $.ajax({  
+  $.ajax({
     method: 'get',
     url: '/search/'+searchKeyWord,
     success: function(result){
       //console.log("results ",result);
       $('.resource-container').empty();
-      result.forEach(function(element) {     
+      result.forEach(function(element) {
         rePosts(updatePost(element))
       });
     },

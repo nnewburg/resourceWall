@@ -1,13 +1,14 @@
 $left-margin: 10px;
-$poster-backgound: #D9f0e4;
+$poster-backgound: #819277;
 
 .shared-content{
   height: 30%;
   font-family: 'Crimson Text', serif;
   width: auto;
-  background: #a3c4b6;
+  max-width: 400px;
+  background: #6e8477;
   border-radius: 5px;
-  border:2px solid #4B5A56;
+  border:2px solid #4c4d4e;
   margin-top: 20px;
   margin: 20px;
 
@@ -44,18 +45,13 @@ $poster-backgound: #D9f0e4;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background:#536D67;
     height: 75%;
     align-items: center;
 
     .post-image{
-      // height: 80%;
-      width: 100%;
-      margin:20px;
-      max-width: 200px;
-      min-width: 100px;
-      max-height: 200px;
-      min-height: 200px;
+      height: 100%;
+      width: 300px;
+      margin:0px;
       border-top:2px solid #4B5A56;
       border-bottom:2px solid #4B5A56;
     }
@@ -68,6 +64,7 @@ $poster-backgound: #D9f0e4;
       width:100%;
       justify-content: center;
       background: $poster-backgound;
+      margin:0;
       padding-left: $left-margin;
       font-size: 18px;
       display:flex;
@@ -77,12 +74,20 @@ $poster-backgound: #D9f0e4;
 
   .footer{
     display:flex;
+    flex-wrap:wrap;
     align-items: center;
     justify-content: space-between;
-    height: 15%;
+    // height: 15%;
 
     .likes{
-      margin-left: $left-margin;
+      margin-left: $left-margin *2;
+      font-size: 350%;
+      color:#040303;
+      cursor: pointer;
+    }
+    .nOfLikes{
+      color:white;
+      transform: translateX(-65px);
     }
 
     .star{
@@ -106,15 +111,25 @@ $poster-backgound: #D9f0e4;
     }
     .star.rated{
       counter-increment: rateme 1;
+      font-size:16;
     }
     .stars::after{
       content: counter(rateme) '/5';
+      margin-right: 20px;
+      font-size:16;
     }
 
     .comments{
+      align-self: flex-end;
       height: 50%;
-      width: 60%;
-      margin: $left-margin *2;
+      width: 80%;
+      margin-left: $left-margin *2;
+      margin-bottom: $left-margin *2;
+    }
+
+    .showComments{
+      height: 2rem;
+      margin-right: $left-margin *2;
     }
   }
 }
