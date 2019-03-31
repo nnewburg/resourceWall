@@ -324,6 +324,13 @@ body .resource-container {
   border-radius: 5px 5px 0px 0px;
 }
 
+.shared-content head .user-avatar {
+  height: 10px;
+  width: 20px;
+  border-radius: 10px;
+  border: 2px solid #4B5A56;
+}
+
 .shared-content head .title {
   -webkit-box-align: center;
       -ms-flex-align: center;
