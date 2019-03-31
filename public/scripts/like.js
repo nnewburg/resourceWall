@@ -18,7 +18,7 @@ $('.container').on('click', '.likes', function(){
               console.log('unliked')
             },
             error: function(err){
-              console.log("there was an unliking error");
+              console.log("there was an error unliking the post");
             }
           })
           
@@ -31,7 +31,7 @@ $('.container').on('click', '.likes', function(){
               console.log('liked')
             },
             error: function(err){
-              console.log("there was an liking error");
+              console.log("there was an error liking the post");
             }
           })
         }

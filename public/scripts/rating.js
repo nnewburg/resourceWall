@@ -12,25 +12,25 @@ $('.container').on('click', '.star', function(e) {
     const resourceId= $(this).parent().parent().data('id');
 
     $.ajax({
-      method: 'PUT',
+      method: 'POST',
       url: `/ratings/${resourceId}/${userId}`,
       data: {myRating: starValue},
       success: function(result){
-        console.log('put')
+        console.log('post')
       },
       error: function(err){
-        console.log("there was an error");
+        console.log("there was an error updating rating to db");
       }
     })
 
-    $.ajax({
-      method: 'GET',
-      url: `/ratings/${resourceId}/${userId}`,
-      success: function(result){
-        console.log('get')
-      },
-      error: function(err){
-        console.log("there was an error");
-      }
-    })
+    // $.ajax({
+    //   method: 'GET',
+    //   url: `/ratings/${resourceId}/${userId}`,
+    //   success: function(result){
+    //     console.log('get')
+    //   },
+    //   error: function(err){
+    //     console.log("there was an error getting rating from db");
+    //   }
+    // })
   });

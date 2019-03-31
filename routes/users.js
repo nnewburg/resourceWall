@@ -15,7 +15,7 @@ module.exports = (knex) => {
       //.leftJoin('resource_ratings as myRatings', 'myRatings.user_id', req.session.user.id)
       .select(['resources.title as title', 'resources.url as url', 'users.name as name', 'resources.id as id', 'resources.description as description', 'resources.image as image', knex.raw('array_agg(distinct content) as comments'), knex.raw('array_agg(distinct keywords.name) as tags')])
       .countDistinct('user_likes.id as likes')
-      .avgDistinct('resource_ratings.rating as ratings')
+      .avg('resource_ratings.rating as ratings')
       //.distinct('ON myRatings.rating as myRating')
       .groupBy('resources.id', 'users.name')
       .orderBy('resources.id', 'DESC')
@@ -27,7 +27,7 @@ module.exports = (knex) => {
   return router;
 }
 //////////// query used to join all the tables:
-// select resources.id, title, users.name, array_agg(distinct user_likes.id) as likes, array_agg(distinct resource_ratings.rating) as ratings, array_agg(distinct keywords.name) as tags
+// select resources.id, title, users.name, array_agg(distinct user_likes.id) as likes, array_agg(resource_ratings.rating) as ratings, array_agg(distinct keywords.name) as tags
 // from resources 
 // join users on resources.user_id = users.id
 // left join user_likes on resources.id = user_likes.resource_id

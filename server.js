@@ -187,17 +187,17 @@ app.put('/comments/:resourceId/:userId', (req, res) => {
   });
 })
 
-app.get('/ratings/:resourceId/:userId', (req, res) => {
-  knex('resource_ratings')
-  .select('rating')
-  .where('resource_ratings.user_id', req.session.user.id)
-  .andWhere('resource_ratings.resource_id', req.params.resourceId)
-  .then((results) => {
-    res.json(results);
-  });
-})
+// app.get('/ratings/:resourceId/:userId', (req, res) => {
+//   knex('resource_ratings')
+//   .select('rating')
+//   .Where('resource_ratings.resource_id', req.params.resourceId)
+//   .andWhere('resource_ratings.user_id', req.params.userId)
+//   .then((results) => {
+//     res.json(results);
+//   });
+// })
 
-app.put('/ratings/:resourceId/:userId', (req, res) => {
+app.post('/ratings/:resourceId/:userId', (req, res) => {
   console.log('userId ',req.params.userId)
   console.log('resId ',req.params.resourceId)
   knex('resource_ratings')
