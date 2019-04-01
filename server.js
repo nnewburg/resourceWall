@@ -144,15 +144,14 @@ app.get('/search/:keyword', (req, res) => {
       .leftJoin('user_likes', 'resources.id', 'user_likes.resource_id')
       .select(['resources.title as title', 'resources.url as url', 'users.name as name', 'resources.id as id', 'resources.description as description', 'resources.image as image', knex.raw('array_agg(distinct content) as allComments'), knex.raw('array_agg(distinct keywords.name) as tags')])
       .countDistinct('user_likes.id as likes')
-      //.countDistinct('content as comments')
       .avgDistinct('resource_ratings.rating as ratings')
-      //.distinct('ON myRatings.rating as myRating')
       .groupBy('resources.id', 'users.name')
       .orderBy('resources.id', 'DESC')
-      .where('keywords.name', req.params.keyword) // search by keyword
-      .orWhere('users.name', req.params.keyword) //search by user's name
+      .where(knex.raw('LOWER(keywords.name) like ?', `%${req.params.keyword}%`))// search by keyword
+      .orWhere(knex.raw('LOWER(users.name) like ?', `%${req.params.keyword}%`))//search by user's name
+      .orWhere(knex.raw('LOWER(resources.description) like ?', `%${req.params.keyword}%`))//search by description
+      .orWhere(knex.raw('LOWER(resources.title) like ?', `%${req.params.keyword}%`))//search by title
       .then((results) => {
-        //console.log("we are in server ",results);
         res.json(results);
       })
 });
@@ -211,10 +210,34 @@ app.put('/comments/:resourceId/:userId', (req, res) => {
 // })
 
 app.put('/ratings/:resourceId/:userId', (req, res) => {
-  console.log('userId ',req.params.userId)
-  console.log('resId ',req.params.resourceId)
   knex('resource_ratings')
   .insert({'rating': req.body.myRating, 'user_id': req.params.userId, 'resource_id': req.params.resourceId})
+  .then((results) => {
+    res.json(results);
+  });
+})
+
+app.get('/liked/:userId', (req, res) => {
+  knex('resources')
+  .rightJoin('user_likes', 'resources.id', 'user_likes.resource_id')
+  .rightJoin('users', 'user_likes.user_id', 'users.id')
+  //.leftJoin('resource_keywords', 'resources.id', 'resource_keywords.resource_id')
+  //.leftJoin('keywords', 'resource_keywords.keyword_id', 'keywords.id')
+  //.leftJoin('resource_ratings', 'resources.id', 'resource_ratings.resource_id')
+  //.leftJoin('comments', 'resources.id', 'comments.resource_id')
+  .select([knex.raw('array_agg(distinct resources.title) as title'), 
+    knex.raw('array_agg(distinct resources.url) as url'), 
+    knex.raw('array_agg(distinct users.name) as name'), 
+    knex.raw('array_agg(distinct resources.id) as id'), 
+    knex.raw('array_agg(distinct resources.description) as description'), 
+    knex.raw('array_agg(distinct resources.image) as image')])
+    //knex.raw('array_agg(distinct content) as allComments'), 
+    //knex.raw('array_agg(distinct keywords.name) as tags')])
+  .countDistinct('user_likes.id as likes')
+  //.avgDistinct('resource_ratings.rating as ratings')
+  .groupBy('resources.id', 'users.name', 'user_likes.id', 'users.id')
+  .orderBy('resources.id', 'DESC')
+  .where('user_likes.user_id', req.params.userId)
   .then((results) => {
     res.json(results);
   });
