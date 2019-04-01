@@ -12,6 +12,7 @@
   <link href='https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,700,700i' rel='stylesheet'>
   <script type='text/javascript' src='/vendor/jquery-3.0.0.js'></script>
   <script type='text/javascript' src='/scripts/app.js'></script>
+  <script type='text/javascript' src='/scripts/user-avatar.js'></script>
 
 </head>
 
@@ -19,7 +20,7 @@
   <% include ./partials/_header %>
   <main id='user-avatar'>
     <figure>
-      <img id='avatar-display' src='/images/tiger.png'>
+      <img id='avatar-display' src='/images/hippo.png'>
     </figure>
   </main>
   <div class='login-form'>
@@ -28,7 +29,7 @@
       <label for='name'>Your Name: </label>
       <input class='form-control' type='text' name='name' placeholder='Your name here'>
       <label for='name'>Your Avatar: </label>
-      <select id='avatar' name='profile_image'>
+      <select class='user-avatar' id='avatar' name='profile_image'>
         <option class='avatar' value='/images/ape.png'> Ape </option>
         <option class='avatar' value='/images/baboon.png'> Baboon </option>
         <option class='avatar' value='/images/cheetah.png'> Cheetah </option>
