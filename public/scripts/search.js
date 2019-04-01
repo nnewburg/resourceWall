@@ -12,7 +12,7 @@ $('#search-button').on('click', function(){
       });
     },
     error: function(err){
-      console.log("there was an error");
+      console.log("there was an error searching");
     }
   })
 })
