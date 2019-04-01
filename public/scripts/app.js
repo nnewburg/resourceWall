@@ -54,13 +54,13 @@ $(() => {
       .append($rating)
       .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
       .append($('<div>').addClass('showComments').text('💬'))
-      .append($('<div>').addClass('keyword').text(`KEYWORD ${resource.tags}`).attr('keyword','1'))
+      .append($('<div>').addClass('keyword').text(`Keywords: ${resource.tags}`).attr('keyword','1'))
     )
     let $article = ($('<article>').addClass('shared-content')
       .append($head)
       .append($body)
       .append($footer)
-      .append($('<div>').addClass('commentsContainer').text(`COMMENTS ${resource.allcomments}`))
+      .append($('<div>').addClass('commentsContainer').text(`Comments: ${resource.allcomments}`))
     )
       return $article;
   }
