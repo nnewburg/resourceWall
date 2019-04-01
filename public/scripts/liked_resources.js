@@ -1,23 +1,23 @@
-$('#search-button').on('click', function(){
-  //console.log('clicked')
-  const searchKeyWord = $('.search-bar').val();
+$('.avatar').on('click', function(){
+  console.log('clicked')
+  const userId = (window.location.href).split('/').pop();
+  console.log(userId)
   $.ajax({
     method: 'GET',
-    url: '/search/'+searchKeyWord,
+    url: `/liked/${userId}`,
     success: function(result){
-      //console.log("results ",result);
       $('.resource-container').empty();
       result.forEach(function(element) {
-        rePosts(updatePost(element))
+        renderLikedPosts(showLikedPost(element))
       });
     },
     error: function(err){
-      console.log("there was an error searching");
+      console.log("there was an error showing liked posts");
     }
   })
 })
 
-function updatePost(resource){
+function showLikedPost(resource){
   let avgRating = Math.round(resource.ratings)
   let $head = ($('<head>')
     // .append($('<img>').addClass('user-avatar').attr('scr', user.avatar))
@@ -64,18 +64,18 @@ function updatePost(resource){
       .append($rating)
       .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
       .append($('<div>').addClass('showComments').text('💬'))
-      .append($('<div>').addClass('keyword').text(`KEYWORD ${resource.tags}`).attr('keyword','1'))
+      //.append($('<div>').addClass('keyword').text(`KEYWORD ${resource.tags}`).attr('keyword','1'))
     )
     let $article = ($('<article>').addClass('shared-content')
       .append($head)
       .append($body)
       .append($footer)
-      .append($('<div>').addClass('commentsContainer').text(`COMMENTS ${resource.allcomments}`))
+      //.append($('<div>').addClass('commentsContainer').text(`COMMENTS ${resource.allcomments}`))
     )
       return $article;
 
 }
 
-function rePosts(data) {
+function renderLikedPosts(data) {
   data.appendTo($('.resource-container'));
 }
