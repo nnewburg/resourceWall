@@ -55,17 +55,65 @@ $(() => {
       .append($('<input>').addClass('comments').attr('placeholder', 'Add Comment'))
       .append($('<div>').addClass('showComments').text('💬'))
       .append($('<div>').addClass('keyword').text(`Keywords: ${resource.tags}`).attr('keyword','1'))
-    )
-    let $article = ($('<article>').addClass('shared-content')
+      )
+
+
+     let $article = ($('<article>').addClass('shared-content')
       .append($head)
       .append($body)
-      .append($footer)
-      .append($('<div>').addClass('commentsContainer').text(`Comments: ${resource.allcomments}`))
-    )
+      .append($footer))
+
+       let $commentsContainer = $('<div>').addClass('commentsContainer')
+
+
+        let uniqueComment = ''
+
+        resource.allcomments.forEach(function(comments){
+        uniqueComment = ($('<div>').text(comments))
+        console.log(comments)
+        $commentsContainer.append(uniqueComment);
+      })
+
+
+
+      $article.append($commentsContainer);
+
       return $article;
   }
+
+      // let commentsContainer = ($('<div>').addClass('commentsContainer'))
+      //   let uniqueComment = ''
+      //   forEach(comments of resource.allcomments){
+      //   uniqueComment = ($('<p>').text(comments))
+      //   console.log(comments)
+      //   commentsContainer.append(uniqueComment);
+      // }
+
+
+      // $article.append(commentsContainer);
+
 
 function renderPosts(data) {
     data.appendTo($('.resource-container'));
 }
 });
+
+
+ // let $article = ($('<article>').addClass('shared-content')
+ //      .append($head)
+ //      .append($body)
+ //      .append($footer)
+ //      .append($('<div>').addClass('commentsContainer').text(`Comments: ${resource.allcomments}`))
+ //    )
+ //      return $article;
+ //  }
+
+ // let commentsContainer = ($('<div>').addClass('commentsContainer').text())
+ //        let uniqueComment = ''
+ //        forEach(comments of resource.allcomments){
+ //        uniqueComment = ($('<p>').text(comments)))
+ //        commentsContainer.append(uniqueComment);
+ //      }
+ //      $article.append(commentsContainer);
+
+ //      return $article;
