@@ -21,6 +21,8 @@ app.use(cookieSession({
 }));
 
 
+//test//
+
 //helper functions for routes
 const queries = require('./helper_functions');
 
@@ -225,13 +227,13 @@ app.get('/liked/:userId', (req, res) => {
   //.leftJoin('keywords', 'resource_keywords.keyword_id', 'keywords.id')
   //.leftJoin('resource_ratings', 'resources.id', 'resource_ratings.resource_id')
   //.leftJoin('comments', 'resources.id', 'comments.resource_id')
-  .select([knex.raw('array_agg(distinct resources.title) as title'), 
-    knex.raw('array_agg(distinct resources.url) as url'), 
-    knex.raw('array_agg(distinct users.name) as name'), 
-    knex.raw('array_agg(distinct resources.id) as id'), 
-    knex.raw('array_agg(distinct resources.description) as description'), 
+  .select([knex.raw('array_agg(distinct resources.title) as title'),
+    knex.raw('array_agg(distinct resources.url) as url'),
+    knex.raw('array_agg(distinct users.name) as name'),
+    knex.raw('array_agg(distinct resources.id) as id'),
+    knex.raw('array_agg(distinct resources.description) as description'),
     knex.raw('array_agg(distinct resources.image) as image')])
-    //knex.raw('array_agg(distinct content) as allComments'), 
+    //knex.raw('array_agg(distinct content) as allComments'),
     //knex.raw('array_agg(distinct keywords.name) as tags')])
   .countDistinct('user_likes.id as likes')
   //.avgDistinct('resource_ratings.rating as ratings')
