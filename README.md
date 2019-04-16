@@ -1,29 +1,30 @@
-# Node Skeleton
+Resource Wall
+=====================
+Collaborated with:
 
-riddle
+Resource Wall is a Social Media app allowing users to share posts to a public board. Posts include a title, description, image,keyword and link. Users have the ability to like, comment, and rate other posts. The likes and comments are linked to the currently logged in user. Likes are responsive and increment if a user has not liked a post and decrement if they have liked it.
+There is also a search feature based on posts the user has liked or by keyword.
 
-## Project Setup
-
-1. Create your own empty repo on GitHub
-2. Clone this repository (do not fork)
-  - Suggestion: When cloning, specify a different folder name that is relevant to your project
-3. Remove the git remote: `git remote rm origin`
-4. Add a remote for your origin: `git remote add origin <your github repo URL>`
-5. Push to the new origin: `git push -u origin master`
-6. Verify that the skeleton code now shows up in your repo on GitHub
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information
-3. Install dependencies: `npm i`
-4. Fix to binaries for sass: `npm rebuild node-sass`
-5. Run migrations: `npm run knex migrate:latest`
+
+1. git clone git@github.com:nnewburg/resourceWall.git
+2. change directory to resource wall
+3. npm i
+4. Update the .env file with your correct local information
+5. Fix to binaries for sass `npm rebuild node-sass`
+6. Run migrations: `npm run knex migrate:latest`
   - Check the migrations folder to see what gets created in the DB
-6. Run the seed: `npm run knex seed:run`
+7. Run the seed: `npm run knex seed:run`
   - Check the seeds file to see what gets seeded in the DB
-7. Run the server: `npm run local`
-8. Visit `http://localhost:8080/`
+8. Run the server: `npm run local`
+9. Visit `http://localhost:8080/`
+
+## Screenshots
+
+!["Screenshot of Resource Wall"]
+
 
 ## Dependencies
 
