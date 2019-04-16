@@ -23,7 +23,7 @@ There is also a search feature based on posts the user has liked or by keyword.
 
 ## Screenshots
 
-!["Screenshot of Resource Wall"]
+!["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall1.png?raw=true)
 
 
 ## Dependencies
