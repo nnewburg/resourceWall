@@ -1,6 +1,6 @@
 Resource Wall
 =====================
-Collaborated with:
+Collaborated with:https://github.com/kcdporter &&https://github.com/xiadongdev
 
 Resource Wall is a Social Media app allowing users to share posts to a public board. Posts include a title, description, image,keyword and link. Users have the ability to like, comment, and rate other posts. The likes and comments are linked to the currently logged in user. Likes are responsive and increment if a user has not liked a post and decrement if they have liked it.
 There is also a search feature based on posts the user has liked or by keyword.
@@ -33,3 +33,15 @@ There is also a search feature based on posts the user has liked or by keyword.
 
 - Node 5.10.x or above
 - NPM 3.8.x or above
+- Body-parser 1.15
+- Cookie-parser 1.4.4
+- Cookie-session 1.3.3
+- Dotenv 2.0.0
+- Ejs 2.4.1
+- Express 4.13.4
+- Knex 0.11.7
+- Knex-logger 0.1
+- Morgan 1.7
+- Node-sass-middleware 0.9.8
+- PG 6.02
+
