@@ -14,8 +14,7 @@ There is also a search feature based on posts the user has liked or by keyword.
 3. npm i
 4. Update the .env file with your correct local information
 5. Fix to binaries for sass `npm rebuild node-sass`
-6. Run migrations: `npm run knex migrate:latest`
-  - Check the migrations folder to see what gets created in the DB
+6. Run migrations: `npm run knex migrate:latest` Check the migrations folder to see what gets created in the DB
 7. Run the seed: `npm run knex seed:run`
   - Check the seeds file to see what gets seeded in the DB
 8. Run the server: `npm run local`
@@ -24,7 +23,11 @@ There is also a search feature based on posts the user has liked or by keyword.
 ## Screenshots
 
 !["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall1.png?raw=true)
-
+!["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall2.png?raw=true)
+!["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall3.png?raw=true)
+!["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall4.png?raw=true)
+!["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall5.png?raw=true)
+!["Screenshot of Resource Wall"](https://github.com/nnewburg/resourceWall/blob/master/docs/resourceWall6.png?raw=true)
 
 ## Dependencies
 
